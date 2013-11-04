@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! c:/Python33 python
 # -*- coding:Utf-8 -*-
 
 """
@@ -56,7 +56,7 @@ def test_pos():
 if __name__ == "__main__":
     
     test_pos()     
-    test_pos2()     
+#    test_pos2()     
         
         
         

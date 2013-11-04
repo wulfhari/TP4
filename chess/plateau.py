@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! c:/Python33 python
 # -*- coding:Utf-8 -*-
 
 """
