@@ -16,3 +16,18 @@ def deplacement valide(self, nouvPos,plateau):
 		return True
 	
 	elif ... pour la colone
+	
+	
+	
+####
+Évaluation 
+Déplacement du pion (normal, premier, prise, promotion)
+déplacement de la tour (normal, prise)
+déplacement du fou (normal, prise)
+déplacement du cavalier (normal, prise)
+déplacement de la reine (normal, prise)
+déplacement du roi (roc, normal, prise)
+echec
+PAT
+etc...
+
