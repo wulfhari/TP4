@@ -21,7 +21,24 @@ class Tour:
     def deplacementValide(self,pos_dep,pos_arr,plateau):
         pass
             
-
+def deplacement valide(self, nouvPos,plateau):
+    pes_dep = self.pos
+    pos_arr = nouvPos
+    #Si une piÃ¨ce Ã  l'arrivÃ©e est identique
+    pieceArr = plateau.getPiece(pos_arr[0],pos_arr[1])
+    if pieceArr != None and pieceArr.color == self.color:
+        return False
+    #Deplacement sur la mÃªme ligne
+    if (pos_dep[0] == pos_arr[0]):
+        depart = min(pos_dep[1],pos_arr[1])+1
+        arrivee = max(pos_dep[1],pos_arr[1])-1
+        #si une piece est dans le chemin
+        for i in range(depart,arrivee):
+            if plateau.get.Piece(pos_dep[0],i) |- None:
+                return Flase
+        return True
+    
+    elif ... pour la colone
 #-----------------
 # FIN CLASSE TOUR
 #-----------------
