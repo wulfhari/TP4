@@ -1,12 +1,12 @@
 TP4
 ===
-Simon T = pion 
+Simon T = 
 
-Zoé
+Simon B. = 
 
-Simon B.
+Claudine = 
 
-Claudine
+Zoé = 
 
 
 A reviser (mettre initial)
