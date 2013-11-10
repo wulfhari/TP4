@@ -6,7 +6,7 @@ Simon B. =
 
 Claudine = 
 
-Zoé = 
+Zoé = script principal
 
 
 A reviser (mettre initial)
