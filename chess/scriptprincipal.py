@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding:Utf8 -*-
+
 '''
 Created on Nov 4, 2013
 
@@ -7,10 +10,49 @@ Created on Nov 4, 2013
 if __name__ == '__main__':
     pass
 
-### Menu principal( jeu par création, jeu par chargement)
-### Menu ( jouer le tour, arrêter et sauvegarder)
-### affichage à chaque tour
+### Menu principal( jeu par cration, jeu par chargement)
+debut = str(input("Bonjour! Voulez-vous crer une nouvelle partie (NV) ou charger une partie existante (CP)? "))
+start = true
 
+while start:
+    if debut.upper() == "NV":
+        new_game(self)
+        start = false
+    elif debut.upper() == "CP":
+        load_game(self)
+        start = false
+    else:
+        print ("Dsol cette entre est inconnue, veuillez inscrire NV pour une nouvelle partie ou CP pour charger un partie existante")
+    debut = str(input("Bonjour! Voulez-vous crer une nouvelle partie (NV) ou charger une partie existante (CP)? "))
+
+
+### Menu ( jouer le tour, arrter et sauvegarder)
+partie = str(input("Que voulez-vous faire? Jouer le tour (J), arrter partie et sauvegarder la partie (A) ou simplement sauvegarder la partie (S)? "))
+cont = true
+while start:
+    if partie.upper() == "J":
+        alternance(self)
+        next_turn(self)
+        cont = false
+    elif partie.upper() == "A":
+        quitter = str(input("ætes-vous certain de vouloir quitter? (O/N) "))
+            if quitter.upper() == "O":
+                save_game(self)
+                quit_game(self)
+                cont = false
+            elif quitter.upper() == "N":
+                pass
+            else:
+                print ("Veuillez inscrire O pour Oui ou N pour Non")
+    elif partie.upper() == "S":
+        save_game(self)
+        cont = false
+    else:
+        print ("Dsol cette entre est inconnue, veuillez inscrire J pour jouer le prochain tour, A pour arrter et sauvegarder la partie ou S pour sauvegarder la partie.")
+
+    partie = str(input("Que voulez-vous faire? Jouer le tour (J), arrter partie et sauvegarder la partie (A) ou simplement sauvegarder la partie (S)? "))
+
+### affichage à chaque tour
 
 
 board = []
