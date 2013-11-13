@@ -2,7 +2,7 @@
 # -*- coding:Utf-8 -*-
 
 """
-    @file: tour.py
+    @file: cavalier.py
     @author:  Zoe Tolszczuk-Leclerc
     
     Fichier contenant la classe Cavalier
