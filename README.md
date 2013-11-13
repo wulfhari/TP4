@@ -6,7 +6,7 @@ Simon B. =
 
 Claudine = 
 
-Zoé = script principal
+Zoé = Classe Cavalier
 
 
 A reviser (mettre initial)
