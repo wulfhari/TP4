@@ -41,4 +41,11 @@ class GameManagement():
         pass
     def transformation(self):
         pass
-    def 
+    def echecEtMat(self):
+        pass
+    def PAT(self):
+        pass
+    def ROC(self):
+        pass
+    
+    

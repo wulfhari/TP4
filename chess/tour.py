@@ -9,14 +9,16 @@ Fichier contenant la classe Tour
 """
 
 class Tour:
-    """Une tour est une pièce d'échec qui peut se déplacer selon les ligne set les colonnes"""
+    """Une tour est une pièce d'échec qui peut se déplacer selon les ligne et les colonnes"""
     
     def __init__(self,line,col,couleur):
         """Initialise une tour à la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         pass
     
     def deplacer(self,n_line,n_col,plateau):
-        pass
+        if deplacementValide == True:
+            
+        
        
     def deplacementValide(self, nouvPos,plateau):
         pos_dep = self.pos
