@@ -9,37 +9,47 @@
     """"
 
 
-class cavalier:
+class cavalier(piece):
     """Un cavalier est une pièce d'échec qui peut se déplacer selon un L soit une dans une orientation et deux dans une autre"""
     
-    def __init__(self,line,col,couleur,pos):
+    def __init__(self,line,col,couleur):
         """Initialise un cavalier à la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         piece.__init__(self,line,col,couleur)
     
     def deplacer(self,n_line,n_col,plateau):
         if deplacementValide == True:
-            #code ici pour effecturer le déplacement
+            #code ici pour effecturer le deplacement
         else:
-            #Code ici si on peut pas faire le déplacement, ou déplacement non autorisé... est-ce ici qu'on envoie le message d'erreur et relance la fonction --> nextturn()
+            #Code ici si on peut pas faire le deplacement, ou déplacement non autorise... est-ce ici qu'on envoie le message d'erreur et relance la fonction --> nextturn()
+
+    def posFuturesPossibles(self,plateau):
+        lf = []
+        cavpos = [[self.pos[0]+1,self.pos[1]+2],[self.pos[0]+2,self.pos[1]+1],[self.pos[0]+2,elf.pos[1]-1],[self.pos[0]+1,self.pos[1]-2],[self.pos[0]-1,self.pos[1]-2],[self.pos[0]-2,self.pos[1]-1],[self.pos[0]-2,self.pos[1]+1],[self.pos[0]-1,self.pos[1]+2]]
+        for l in cavpos:
+            if piece != None:
+                if piece.color == self.color:
+                    break
+                else:
+                    append.lf(l)
+                    break
+            else:
+                append.lf()
+
+    def deplacer(self,nouvPos,plateau):
+        if nouvPos in self.posFuturesPossibles(plateau):
+            self.pos = nouvPos
+        # else on ne change rien : on retourne la position courante
+        # pour signifier que le changement a eu lieu ... ou pas
+        return self.pos
     
-    def deplacementValide(self,nouvPos,plateau):
-        pos_dep = self.pos 
-        pos_arr = nouvPos #input joueur de next turn()??? semble être une liste
-        #Si une piece a  l'arrivee est identique
-        pieceArr = plateau.getPiece(pos_arr[0],pos_arr[1])
-        if pieceArr != None and pieceArr.color == self.color:
-            return False
-        #Deplacement sur la meme ligne
-        if (pos_dep[0] == pos_arr[0]):
-            depart = min(pos_dep[1],pos_arr[1])+1
-            arrivee = max(pos_dep[1],pos_arr[1])-1
-            #si une piece est dans le chemin
-            for i in range(depart,arrivee):
-                if plateau.get.Piece(pos_dep[0],i) |- None:
-                    return False
-            return True
-        
-        elif ... pour la colone
+    def __repr__(self):
+        """ Petit truc pour l'affichage """
+        if self.color == 0:
+            return "Cavalier Noire "+str(self.pos)
+        else:
+            return "Cavalier Blanche"+str(self.pos)
+
+
 #-----------------
 # FIN CLASSE CAVALIER
 #-----------------
