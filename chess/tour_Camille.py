@@ -8,7 +8,7 @@
 Fichier contenant la classe Tour
 """
 
-class Tour:
+class Tour(piece):
     """Une tour est une pièce d'échec qui peut se déplacer selon les ligne set les colonnes"""
     
     def __init__(self,line,col,couleur):
