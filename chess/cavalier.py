@@ -14,15 +14,17 @@ class cavalier:
     
     def __init__(self,line,col,couleur,pos):
         """Initialise un cavalier à la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
-        Piece.__init__(self,line,col,couleur)
+        piece.__init__(self,line,col,couleur)
     
     def deplacer(self,n_line,n_col,plateau):
         if deplacementValide == True:
-    
+            #code ici pour effecturer le déplacement
+        else:
+            #Code ici si on peut pas faire le déplacement, ou déplacement non autorisé... est-ce ici qu'on envoie le message d'erreur et relance la fonction --> nextturn()
     
     def deplacementValide(self,nouvPos,plateau):
-        pos_dep = self.pos
-        pos_arr = nouvPos
+        pos_dep = self.pos 
+        pos_arr = nouvPos #input joueur de next turn()??? semble être une liste
         #Si une piece a  l'arrivee est identique
         pieceArr = plateau.getPiece(pos_arr[0],pos_arr[1])
         if pieceArr != None and pieceArr.color == self.color:
