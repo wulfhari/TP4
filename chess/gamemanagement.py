@@ -35,10 +35,6 @@ class GameManagement():
         pass
     def next_turn(self):
         pass
-        #jouer le coup 
-        #mettre à jour le plateau
-        #mettre à jour la variable d'alternance
-        
     def alternance(self):
         pass
     def echec(self):
@@ -51,4 +47,5 @@ class GameManagement():
         pass
     def ROC(self):
         pass
+    
     
