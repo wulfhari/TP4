@@ -1,10 +1,10 @@
 TP4
 ===
-Simon T = 
+Simon T = Classe Pion
 
 Simon B. = 
 
-Claudine = 
+Claudine = Classe Fou
 
 Zoé = Classe Cavalier
 
@@ -18,3 +18,6 @@ Revisé
 
 
 Commentaires
+
+Premier qui finit sa classe fait roi
+Reine sera un mixte de fou et tour à la fin
