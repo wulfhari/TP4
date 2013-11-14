@@ -10,8 +10,13 @@ class fou(object):
     '''
 
 
-    def __init__(self:
+    def __init__(self, line, col, couleur):
         '''
         Constructor
         '''
+        self.line = line
+        self.col = col
+        self.couleur = couleur
+        
+        
         
