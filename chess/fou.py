@@ -7,21 +7,19 @@
     
     Fichier contenant la classe fou
 
-Created on Nov 13, 2013
 
+Created on Nov 13, 2013
 @author: Claudine
 
 """
-
 
 class fou(object):
     
     # Un fou est une piece d'echec qui peut se deplacer en diagonale
 
-
     def __init__(self, line, col, couleur):
         '''
-        """Initialise un cavalier � la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
+        """Initialise un cavalier a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         '''
         self.line = line
         self.col = col
@@ -54,3 +52,4 @@ class fou(object):
         
         elif ... pour la colone        
         
+
