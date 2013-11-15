@@ -8,7 +8,7 @@ class piece(object):
     classdocs
     '''
 
-
+    abouge = False
     def __init__(self, line , col, couleur):
         '''
         Constructor

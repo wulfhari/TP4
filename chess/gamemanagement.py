@@ -27,7 +27,15 @@ class GameManagement():
 
 
     def save_game(self):
-        pass
+        from chess.plateau import Plateau
+                     
+        f = open("output.txt", "w")
+        
+        for item in Plateau:
+            f.write(str(item) + "\n")
+        
+        f.close()
+        
     def load_game(self):
         pass
     def new_game(self):
