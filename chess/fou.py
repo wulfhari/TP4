@@ -12,8 +12,8 @@ Created on Nov 13, 2013
 @author: Claudine
 
 """
-
-class fou(object):
+from chess.piece import Piece
+class fou(Piece):
     
     # Un fou est une piece d'echec qui peut se deplacer en diagonale
 
