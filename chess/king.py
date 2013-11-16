@@ -9,12 +9,12 @@
     """"
 
 
-class king(piece):
+class king(Piece):
     """Le Roi est une pièce d'échec qui peut se déplacer dans toutes les directions (comme la reine), mais d'une seule case à la fois"""
     
     def __init__(self,line,col,couleur):
         """Initialise un roi à la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
-        piece.__init__(self,line,col,couleur)
+        Piece.__init__(self,line,col,couleur)
     
     def deplacer(self,n_line,n_col,plateau):
         if deplacementValide == True:
@@ -27,8 +27,8 @@ class king(piece):
         lf = []
         cavpos = [[self.pos[0]+1,self.pos[1]-1],[self.pos[0],self.pos[1]-1],[self.pos[0]-1,self.pos[1]-1],[self.pos[0]-1,self.pos[1]],[self.pos[0]-1,self.pos[1]+1],[self.pos[0],self.pos[1]+1],[self.pos[0]+1,self.pos[1]+1],[self.pos[0]+1,self.pos[1]]]
         for l in cavpos:
-            if piece != None:
-                if piece.color == self.color:
+            if Piece != None:
+                if Piece.color == self.color:
                     break
                 else:
                     append.lf(l)
