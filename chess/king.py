@@ -6,8 +6,8 @@
     @author:  Zoe Tolszczuk-Leclerc
     
     Fichier contenant la classe king
-    """"
-
+    """""
+from chess.piece import Piece
 
 class king(Piece):
     """Le Roi est une pièce d'échec qui peut se déplacer dans toutes les directions (comme la reine), mais d'une seule case à la fois"""
