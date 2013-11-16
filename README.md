@@ -6,10 +6,12 @@ Simon B. =
 
 Claudine = Classe Fou
 
-Zoé = Classe Cavalier
+Zoé = Classe Roi
 
 
 A reviser (mettre initial)
+
+Cavalier
 
 
 
