@@ -31,12 +31,12 @@ class fou(Piece):
             #code ici pour effecturer le deplacement
             pos_arr = pos_dep
         else:
-            #Code ici si on peut pas faire le d�placement, ou d�placement non autoris�... est-ce ici qu'on envoie le message d'erreur et relance la fonction --> nextturn()
+            #Code ici si on peut pas faire le déplacement, ou déplacement non autorisé... est-ce ici qu'on envoie le message d'erreur et relance la fonction --> nextturn()
     
     def deplacementValide(self,nouvPos,plateau):
         pos_dep = self.pos 
-        pos_arr = nouvPos #input joueur de next turn()??? semble �tre une liste
-        #Si une piece a� l'arrivee est identique
+        pos_arr = nouvPos #input joueur de next turn()??? semble être une liste
+        #Si une piece à l'arrivee est identique
         pieceArr = plateau.getPiece(pos_arr[0],pos_arr[1])
         if pieceArr != None and pieceArr.color == self.color:
             return False
