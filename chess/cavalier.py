@@ -45,9 +45,9 @@ class cavalier(piece):
     def __repr__(self):
         """ Petit truc pour l'affichage """
         if self.color == 0:
-            return "Cavalier Noire "+str(self.pos)
+            return "Cavalier Noir"+str(self.pos)
         else:
-            return "Cavalier Blanche"+str(self.pos)
+            return "Cavalier Blanc"+str(self.pos)
 
 
 #-----------------
@@ -88,8 +88,6 @@ def test_pos():
     p.damier.pop((3,5))
     cn1.deplacer((4,3),p) # 2,2 -> 4,3 # Ne fais rien / cn2 a l'arrivee
     print(cn1)
-    p.damier[(2,2)] = cn1
-    p.damier.pop((0,1))
     cb1.deplacer((6,0),p) # 7,1 -> 6,0 # ne fais rien / mouvement non autorisé
     print(cb1)
     cb1.deplacer((5,2),p) # 7,1 -> 5,2 # Ok
