@@ -16,12 +16,6 @@ class cavalier(Piece):
         """Initialise un cavalier à la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         Piece.__init__(self,line,col,couleur)
     
-    def deplacer(self,n_line,n_col,plateau):
-        if deplacementValide == True:
-            #code ici pour effecturer le deplacement
-        else:
-            #Code ici si on peut pas faire le deplacement, ou déplacement non autorise... est-ce ici qu'on envoie le message d'erreur et relance la fonction --> nextturn()
-
     def posFuturesPossibles(self,plateau):
         lf = []
         cavpos = [[self.pos[0]+1,self.pos[1]+2],[self.pos[0]+2,self.pos[1]+1],[self.pos[0]+2,elf.pos[1]-1],[self.pos[0]+1,self.pos[1]-2],[self.pos[0]-1,self.pos[1]-2],[self.pos[0]-2,self.pos[1]-1],[self.pos[0]-2,self.pos[1]+1],[self.pos[0]-1,self.pos[1]+2]]
@@ -34,6 +28,7 @@ class cavalier(Piece):
                     break
             else:
                 append.lf()
+        return lf
 
     def deplacer(self,nouvPos,plateau):
         if nouvPos in self.posFuturesPossibles(plateau):
