@@ -16,7 +16,7 @@ from chess.fou import Fou
 from chess.cavalier import Cavalier
 
 class Plateau(object):
-    
+    tour = 0
     def __init__(self):
         """Initialise le plateau avec un damier vide"""
     #self.damier = {(0,0):Tour(0,0,0), (0,7):Tour(0,7,0), (7,0):Tour(7,0,1), (7,7):Tour(7,7,1)}

@@ -31,7 +31,13 @@ class GameManagement(object):
         cwd = os.getcwd()
         path = os.path.join(cwd, file_name)        
         f = open(path, "w")
+        
+        for piece in board:
+            if board[piece] == Tour(piece,1):
+            
+        f.write(str(board.tour,+tour.abouge, +tour.abouge, +tour.abouge )+"\n")
         for item in board:
+            
             f.write(str(item) + "\n")
         f.close()
 
@@ -60,8 +66,11 @@ class GameManagement(object):
             active_player = "Noir"
         return active_player
     
-    def next_turn(self):
-        pass
+    def next_turn(self, board):
+        board.tour += 1
+        
+        
+        
         
     def transformation(self):
         pass
