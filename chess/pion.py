@@ -9,7 +9,7 @@ class Pion(Piece):
     classdocs
     '''    
     def __init__(self,line,col,couleur):
-        """Initialise un roi � la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
+        """Initialise un pion a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         self.pos=(line,col)  # Sa position
         self.color=couleur   # sa couleur
         
