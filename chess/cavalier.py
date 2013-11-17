@@ -54,7 +54,7 @@ class Cavalier(Piece):
 #------------------
 
 def test_pos():
-    from plateau import Plateau
+    from chess.plateau import Plateau
     p = Plateau()
     cn1 = p.getPiece(0,1)
     cn2 = p.getPiece(0,6)

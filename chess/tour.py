@@ -73,7 +73,7 @@ class Tour(Piece):
                     lf += [(l,self.pos[1])]
                     break
             else:
-                lf += [(l,self.pos[1])]
+                lf += [(l,self.pos[1])]    
         # Position au dessous de la position courante
         for l in range(self.pos[0]+1,7):
             piece = plateau.getPiece(l,self.pos[1])
@@ -132,7 +132,7 @@ class Tour(Piece):
 #-----------------
 
 def test_pos():
-        from plateau import Plateau
+        from chess.plateau import Plateau
         p = Plateau()
         tn1 = p.getPiece(0,0)
         tn2 = p.getPiece(0,7)
@@ -144,6 +144,7 @@ def test_pos():
         print(tn1)
         p.damier[(0,3)] = tn1
         p.damier.pop((0,0))
+        
         tn2.deplacer((0,1),p) # 0,7 -> 0,1 # Ne fais rien / tn1 dans le chemin
         tn2.deplacer((0,1),p) # 0,7 -> 0,3 # Ne fais rien / tn1 à l'arrivée
         print(tn2)
@@ -182,7 +183,7 @@ def test_pos():
         print(p.damier)
         
 def test_pos2():
-        from plateau import Plateau
+        from chess.plateau import Plateau
         p = Plateau()
         tn1 = p.getPiece(0,0)
         tn2 = p.getPiece(0,7)
