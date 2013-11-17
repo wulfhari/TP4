@@ -6,10 +6,9 @@ Created on Nov 16, 2013
 from chess.piece import Piece
 class Pion(Piece):
     '''
-    classdocs
-    
     Un pion peut se deplacer de deux cases a la vertical a son permier tour, se deplacer d'une case a la fois a la verticale et qui mange en diagonale
-    '''    
+    '''
+    
     def __init__(self,line,col,couleur):
         """Initialise un pion a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         self.pos=(line,col)  # Sa position
@@ -30,8 +29,7 @@ class Pion(Piece):
         pieceDev=plateau.getPiece(pos_dep[0]+1,pos_dep[1])  #Pour le saut de deux cases
         if (pieceArr != None) and (pieceArr.color == self.color) :
             return False
-
-                
+       
         #PIONS NOIRS
         
         if self.color==0:
@@ -87,7 +85,7 @@ class Pion(Piece):
             return False
         
 def test_pion():
-    from plateau import Plateau
+    from chess.plateau import Plateau
     p = Plateau()
     pn1 = p.getPiece(1,0)
     pn2 = p.getPiece(1,1)
@@ -101,6 +99,7 @@ def test_pion():
     pn2.deplacer((4,0),p) #pn2 mange pb1
     pb2.deplacer((5,1),p)
     pb2.deplacer((3,1),p) #invalide, avance de 2 a son 2ieme coup
+    pn2.deplacer((5,1),p) #invalide, personne a manger
     
     
     
