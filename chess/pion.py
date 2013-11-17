@@ -7,6 +7,8 @@ from chess.piece import Piece
 class Pion(Piece):
     '''
     classdocs
+    
+    Un pion peut se deplacer de deux cases a la vertical a son permier tour, se deplacer d'une case a la fois a la verticale et qui mange en diagonale
     '''    
     def __init__(self,line,col,couleur):
         """Initialise un pion a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
@@ -25,7 +27,7 @@ class Pion(Piece):
         
         #Si une piece alliee est sur la case d'arrivee
         pieceArr=plateau.getPiece(pos_arr[0],pos_arr[1])
-        pieceDev=plateau.getPiece(pos_dep[0]+1,pos_dep[1])
+        pieceDev=plateau.getPiece(pos_dep[0]+1,pos_dep[1])  #Pour le saut de deux cases
         if (pieceArr != None) and (pieceArr.color == self.color) :
             return False
 
