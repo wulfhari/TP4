@@ -9,61 +9,74 @@ Fichier contenant la classe fou
  
 """
 
-class fou(object):
+class Fou(Piece):
     """Un fou est une piece d'echec qui peut se deplacer en diagonale"""
  
     def __init__(self, line, col, couleur):
-    
-    """Initialise un cavalier a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
-    
+    """Initialise un fou a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
     piece.__init__(self,line,col,couleur)
-    self.line = line
-    self.col = col
     
-    def posFuturesPossibles(self,plateau):
-        lf = [] # Liste des positions futures possibles
-        dirs = [(1,1),(-1,1),(1,-1),(-1,-1) ]
-        #foupos = [[self.pos[0]+1,self.pos[2]+1],[self.pos[0]+1,self.pos[2]-1],[self.pos[0]-1,self.pos[2]+1],[self.pos[0]-1,self.pos[2]-1],[self.pos[0]-1,self.pos[2]-2],[self.pos[0]-2,self.pos[2]-1],[self.pos[0]-2,self.pos[2]+1],[self.pos[0]-1,self.pos[2]+2]]
-        pieceArr=plateau.getPiece(pos_arr[0],pos_arr[1])
+    def deplacementValide(self,nouvPos,plateau):
+        x = nouvPos[0]-self.pos[0]
+        y = nouvPos[1]-self.pos[1]
         
-        x=nouvPos[0]-self.pos[0]
-        y=nouvPos[1]-self.pos[1]
-        
-        if x % y == 0 : 
-            for i in range [0,x]:
-                for j in range [0,y]:
-                    x+1, y+1
-                        if piece != None:
-                            if piece.color == self.color:
-                                break
-                            else:
-                                append.lf(l)
-                                break
-                        else:
-                            append.lf()
-                
-        
-        else:
+        if x%y == 0:
             
-        # Position au dessus de la position courante #de Tour
-        for l in reversed(range(0,self.pos[0])): #### VOIR REVERSED !
-            piece = plateau.getPiece(l,self.pos[1])
-            if piece != None:
-                if piece.color == self.color:
-                    break
-                else:
-                    lf += [(l,self.pos[1])]
-                    break
-            else:
-                lf += [(l,self.pos[1])]    
+            pos_dep = self.pos
+            pos_arr = nouvPos
+            i = 1
+            # Si une pièce à l'arrivée et identique à la couleur du fou
+            pieceArr = plateau.getPiece(pos_arr[0],pos_arr[1])
+            
+            if pieceArr != None and pieceArr.color == self.color:
+                return False
+            
+            # Deplacement sur la diagonale haut gauche
+            elif x>0 and y < 0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0]+i, self.pos[1]-i) != None:
+                        return False
+                    # Si une pièce est sur le chemin, le fou ne peut pas passer
+                    else:
+                        i = i+1
+                return True
+            
+            # Deplacement sur la diagonale haut gauche
+            elif x>0 and y > 0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0]+i, self.pos[1]+i) != None:
+                        return False
+                    # Si une pièce est sur le chemin, le fou ne peut pas passer
+                    else:
+                        i = i+1
 
-
+            # Deplacement sur la diagonale haut gauche
+            elif x<0 and y < 0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0-i, self.pos[1]-i) != None:
+                        return False
+                        # Si une pièce est sur le chemin, le fou ne peut pas passer
+                    else:
+                        i = i+1
+                                                 
+            # Deplacement sur la diagonale haut gauche
+            elif x<0 and y >0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0]-i, self.pos[1]+i) != None:
+                        return False
+                        # Si une pièce est sur le chemin, le fou ne peut pas passer
+                    else:
+                        i = i+1
+                                                 
+        else:
+            return False
+  
     def deplacer(self,nouvPos,plateau):
-        if nouvPos in self.posFuturesPossibles(plateau):
+        if self.deplacementValide(nouvPos,plateau):
             self.pos = nouvPos
-        # else on ne change rien : on retourne la position courante
-        # pour signifier que le changement a eu lieu ... ou pas
-        return self.pos
+    # else on ne change rien : on retourne la position courante
+    # pour signifier que le changement a eu lieu ... ou pas
+            return self.pos
     
     def __repr__(self):
         """ Petit truc pour l'affichage """
@@ -72,6 +85,7 @@ class fou(object):
         else:
             return "Fou Blanche"+ str(self.pos)
 
+    
 
 #-----------------
 # FIN CLASSE FOU
