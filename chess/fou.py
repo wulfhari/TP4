@@ -14,7 +14,7 @@ class fou(object):
  
     def __init__(self, line, col, couleur):
     
-         """Initialise un cavalier a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
+    """Initialise un cavalier a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
     
     piece.__init__(self,line,col,couleur)
     self.line = line
@@ -22,8 +22,11 @@ class fou(object):
     
     def posFuturesPossibles(self,plateau):
         lf = [] # Liste des positions futures possibles
-        foupos = [[self.pos[0]+1,self.pos[2]+1],[self.pos[0]+1,self.pos[2]+-1],[self.pos[0]-1,self.pos[2]+1],[self.pos[0]-1,self.pos[2]-1],[self.pos[0]-1,self.pos[2]-2],[self.pos[0]-2,self.pos[2]-1],[self.pos[0]-2,self.pos[2]+1],[self.pos[0]-1,self.pos[2]+2]]
-        for l in foupos:
+        dirs = [(1,1),(-1,1),(1,-1),(-1,-1) ]
+        #foupos = [[self.pos[0]+1,self.pos[2]+1],[self.pos[0]+1,self.pos[2]-1],[self.pos[0]-1,self.pos[2]+1],[self.pos[0]-1,self.pos[2]-1],[self.pos[0]-1,self.pos[2]-2],[self.pos[0]-2,self.pos[2]-1],[self.pos[0]-2,self.pos[2]+1],[self.pos[0]-1,self.pos[2]+2]]
+        fromPos_fou=[self.pos[0],self.pos[2]],self.pos[0],self.pos[5]],[self.pos[7],self.pos[2]],[self.pos[7],self.pos[5]]]
+        getpiece
+        for l in fromPos_fou:
             if piece != None:
                 if piece.color == self.color:
                     break
