@@ -83,6 +83,13 @@ class Pion(Piece):
         else:
             return False
         
+    def __repr__(self):
+    """ Petit truc pour l'affichage """
+        if self.color == 0:
+            return self.pos[0],self.pos[1],"P","N"
+        else:
+            return self.pos[0],self.pos[1],"P","B"
+        
 def test_pion():
     from chess.plateau import Plateau
     p = Plateau()
