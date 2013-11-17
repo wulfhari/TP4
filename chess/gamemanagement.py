@@ -57,5 +57,8 @@ class GameManagement(object):
         pass
     def ROC(self):
         
+    def affichage_plateau(self):
+        pass
+        
     
     

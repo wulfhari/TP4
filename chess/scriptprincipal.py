@@ -61,7 +61,11 @@ from chess.plateau import *
 
 board = Plateau.damier
 
-   
+game = "on"
+while game == "on"
+    print("Bienvenu dans le jeu Completement Echec v1.0")
+    print("En tout temps, entrez ces commandes Voici les commandes de jeu : nouvelle partie = nv, sauvegarder une partie = ")
+    
    
     """
     for x in range(0, 7):
