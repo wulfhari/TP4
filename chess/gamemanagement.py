@@ -26,9 +26,11 @@ class GameManagement(object):
 ### Affichage (plateau, tour de jeu)
 
 
-    def save_game(self, board):
-        from os import path
-        f = open("save.txt", "w")
+    def save_game(self, board, file_name):
+        import os
+        cwd = os.getcwd()
+        path = os.path.join(cwd, file_name)        
+        f = open(path, "w")
         for item in board:
             f.write(str(item) + "\n")
         f.close()
