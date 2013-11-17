@@ -17,7 +17,6 @@ class Roi(Piece):
         Piece.__init__(self,line,col,couleur)
     
     def posFuturesPossibles(self,plateau):
-        
         lf = []
         cavpos = [[self.pos[0]+1,self.pos[1]-1],[self.pos[0],self.pos[1]-1],[self.pos[0]-1,self.pos[1]-1],[self.pos[0]-1,self.pos[1]],[self.pos[0]-1,self.pos[1]+1],[self.pos[0],self.pos[1]+1],[self.pos[0]+1,self.pos[1]+1],[self.pos[0]+1,self.pos[1]]]
         for l in cavpos:
@@ -47,12 +46,9 @@ class Roi(Piece):
 
 
 #-----------------
-# FIN CLASSE CAVALIER
+# FIN CLASSE ROI
 #-----------------
 
-#-----------------
-#Copie test tour camille pour en faire tes cavalier
-#------------------
 
 def test_pos():
     from plateau import Plateau
