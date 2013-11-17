@@ -26,31 +26,40 @@ class GameManagement(object):
 ### Affichage (plateau, tour de jeu)
 
 
-    def save_game(self, Plateau):
+    def save_game(self, board):
         
-                     
         f = open("save.txt", "w")
-        for item in Plateau:
+        for item in board:
             f.write(str(item) + "\n")
         f.close()
-        
-    def load_game(self):
-        f = open("save.txt", "r")
+
+    def load_game(self, save_file):
+        from chess.plateau import Plateau
+        f = open(save_file, "r")
+        board = Plateau()
         for ln in f:
             line = f.readline(ln)
-            Plateau.damier[] = line
+            board[line()] = line()
+        return board
         f.close()
     
     def new_game(self):
         from chess.plateau import Plateau
         board = Plateau()
+        return board
         
+    
+        
+    def alternance(self, active_player):
+        active_player = active_player
+        if active_player == "Noir":
+            active_player = "Blanc"
+        elif active_player == "Blanc":
+            active_player = "Noir"
+        return active_player
+    
     def next_turn(self):
-        
-        
-    def alternance(self):
-        player1 = 1
-        player2 = 0
+        pass
         
     def echec(self):
         pass

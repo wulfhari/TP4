@@ -18,10 +18,22 @@ if __name__ == '__main__':
     while play:
         if debut.lower() == "new":
             board = new_game()
+            user_input = input("C'est au tour des "+ alternance() +" a jouer.")
+            if user_input == "man":
+                manuel()
+            elif user_input.lower == "save":
+                save_game()
+            elif user_input.lower == "load":
+                load_game()
+            elif user_input == (,)(,):
+                next_turn(user_input)
+            else:
+                manuel()
             
         elif debut.upper() == "load":
             board = load_game()
-            next
+            next_turn()
+            
         else:
             print("Desole cette commande est inconnue")
             manuel()
@@ -29,32 +41,6 @@ if __name__ == '__main__':
 
     ### Menu ( jouer le tour, arr�ter et sauvegarder)
     
-    def menu_tour():
-        partie = str(input("Que voulez-vous faire? Jouer le tour (J), arreter le partie et sauvegarder la partie (A) ou simplement sauvegarder la partie (S)? "))
-        cont = True
-        while start:
-            if partie.upper() == "J":
-                alternance(self)
-                next_turn(self)
-                cont = False
-            elif partie.upper() == "A":
-                quitter = str(input("etes-vous certain de vouloir quitter? (O/N) "))
-                    if quitter.upper() == "O":
-                        save_game(self)
-                        quit_game(self)
-                        cont = False
-                    elif quitter.upper() == "N":
-                        pass
-                    else:
-                        print ("Veuillez inscrire O pour Oui ou N pour Non")
-            elif partie.upper() == "S":
-                save_game(self)
-                cont = False
-            else:
-                print ("Desole cette entree est inconnue, veuillez inscrire J pour jouer le prochain tour, A pour arr�ter et sauvegarder la partie ou S pour sauvegarder la partie.")
-
-            partie = str(input("Que voulez-vous faire? Jouer le tour (J), arr�ter partie et sauvegarder la partie (A) ou simplement sauvegarder la partie (S)? "))
-
     def manuel():
         print("Entrez ces commandes pour controler le jeu")
         print("new : nouvelle partie, save :  sauvegarder une partie, load : charger une partie")

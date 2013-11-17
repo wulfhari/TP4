@@ -15,7 +15,7 @@ from chess.pion import Pion
 from chess.fou import Fou
 from chess.cavalier import Cavalier
 
-class Plateau:
+class Plateau(object):
     
     def __init__(self):
         """Initialise le plateau avec un damier vide"""
