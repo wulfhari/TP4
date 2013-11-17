@@ -24,17 +24,39 @@ class fou(object):
         lf = [] # Liste des positions futures possibles
         dirs = [(1,1),(-1,1),(1,-1),(-1,-1) ]
         #foupos = [[self.pos[0]+1,self.pos[2]+1],[self.pos[0]+1,self.pos[2]-1],[self.pos[0]-1,self.pos[2]+1],[self.pos[0]-1,self.pos[2]-1],[self.pos[0]-1,self.pos[2]-2],[self.pos[0]-2,self.pos[2]-1],[self.pos[0]-2,self.pos[2]+1],[self.pos[0]-1,self.pos[2]+2]]
-        fromPos_fou=[self.pos[0],self.pos[2]],self.pos[0],self.pos[5]],[self.pos[7],self.pos[2]],[self.pos[7],self.pos[5]]]
-        getpiece
-        for l in fromPos_fou:
+        pieceArr=plateau.getPiece(pos_arr[0],pos_arr[1])
+        
+        x=nouvPos[0]-self.pos[0]
+        y=nouvPos[1]-self.pos[1]
+        
+        if x % y == 0 : 
+            for i in range [0,x]:
+                for j in range [0,y]:
+                    x+1, y+1
+                        if piece != None:
+                            if piece.color == self.color:
+                                break
+                            else:
+                                append.lf(l)
+                                break
+                        else:
+                            append.lf()
+                
+        
+        else:
+            
+        # Position au dessus de la position courante #de Tour
+        for l in reversed(range(0,self.pos[0])): #### VOIR REVERSED !
+            piece = plateau.getPiece(l,self.pos[1])
             if piece != None:
                 if piece.color == self.color:
                     break
                 else:
-                    append.lf(l)
+                    lf += [(l,self.pos[1])]
                     break
             else:
-                append.lf()
+                lf += [(l,self.pos[1])]    
+
 
     def deplacer(self,nouvPos,plateau):
         if nouvPos in self.posFuturesPossibles(plateau):
