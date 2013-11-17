@@ -6,10 +6,10 @@
     @author:  Zoe Tolszczuk-Leclerc
     
     Fichier contenant la classe Cavalier
-    """"
+"""
 
 from chess.piece import Piece
-class cavalier(Piece):
+class Cavalier(Piece):
     """Un cavalier est une pièce d'échec qui peut se déplacer selon un L soit une dans une orientation et deux dans une autre"""
     
     def __init__(self,line,col,couleur):
@@ -18,7 +18,7 @@ class cavalier(Piece):
     
     def posFuturesPossibles(self,plateau):
         lf = []
-        cavpos = [[self.pos[0]+1,self.pos[1]+2],[self.pos[0]+2,self.pos[1]+1],[self.pos[0]+2,elf.pos[1]-1],[self.pos[0]+1,self.pos[1]-2],[self.pos[0]-1,self.pos[1]-2],[self.pos[0]-2,self.pos[1]-1],[self.pos[0]-2,self.pos[1]+1],[self.pos[0]-1,self.pos[1]+2]]
+        cavpos = [[self.pos[0]+1,self.pos[1]+2],[self.pos[0]+2,self.pos[1]+1],[self.pos[0]+2,self.pos[1]-1],[self.pos[0]+1,self.pos[1]-2],[self.pos[0]-1,self.pos[1]-2],[self.pos[0]-2,self.pos[1]-1],[self.pos[0]-2,self.pos[1]+1],[self.pos[0]-1,self.pos[1]+2]]
         for l in cavpos:
             if Piece != None:
                 if Piece.color == self.color:
