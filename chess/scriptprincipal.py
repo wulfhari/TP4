@@ -9,23 +9,22 @@ Created on Nov 4, 2013
 
 if __name__ == '__main__':
     
-from chess.plateau import *
+#from chess.plateau import *
 
     ### Menu principal( jeu par cr�ation, jeu par chargement)
-    def menu_princ():
-        debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie (NV) ou charger une partie existante (CP)? "))
-        start = True
-
-        while start:
-            if debut.upper() == "NV":
-                new_game(self)
-                start = False
-            elif debut.upper() == "CP":
-                load_game(self)
-                start = False
-            else:
-                print ("Desole cette entree est inconnue, veuillez inscrire NV pour une nouvelle partie ou CP pour charger un partie existante")
-            debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie (NV) ou charger une partie existante (CP)? "))
+    from chess.gamemanagement import * 
+    debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie new ou charger une partie existante (load)? "))
+    play = True
+    while play:
+        if debut.lower() == "new":
+            board = new_game()
+            
+        elif debut.upper() == "load":
+            board = load_game()
+            next
+        else:
+            print("Desole cette commande est inconnue")
+            manuel()
 
 
     ### Menu ( jouer le tour, arr�ter et sauvegarder)
@@ -56,23 +55,32 @@ from chess.plateau import *
 
             partie = str(input("Que voulez-vous faire? Jouer le tour (J), arr�ter partie et sauvegarder la partie (A) ou simplement sauvegarder la partie (S)? "))
 
-    def commandes():
+    def manuel():
+        print("Entrez ces commandes pour controler le jeu")
+        print("new : nouvelle partie, save :  sauvegarder une partie, load : charger une partie")
+        print("Pour jouer, entrez la position d'une piece tapez entrer. Puis entrez la position de destination de la piece")
+        print("Par exemple, (1,1)(1,2) pour deplacer le pion en position (1,1) vers (1,2) ))
+        print("Entrez man pour réimprimer ces commandes")
         
-    
-    ### affichage � chaque tour
-
-
-board = Plateau.damier
-
-game = "on"
-while game == "on"
-    print("Bienvenu dans le jeu Completement Echec v1.0")
-    print("En tout temps, vous pouvez entrer ces commandes pour controler le jeu")
-    print("new : nouvelle partie, save :  sauvegarder une partie, load : charger une partie")
-    print("Pour jouer, entrez la position d'une piece tapez entrer. Puis entrez la position de destination de la piece")
-    print("com : réimprimer ces commandes")
-    
-   
+    def affichage_plateau():
+        from chess.plateau import Plateau
+        board = Plateau()
+        
+        
+        caracteres_unicode_pieces = {'TB': '\u2656',
+                                     'CB': '\u2658',
+                                     'FB': '\u2657',
+                                     'KB': '\u2654',
+                                     'QB': '\u2655',
+                                     'PB': '\u2659',
+                                     'TN': '\u265C',
+                                     'CN': '\u265E',
+                                     'FN': '\u265D',
+                                     'KN': '\u265A',
+                                     'QN': '\u265B',
+                                     'PN': '\u265F',}
+  
+     
     """
     for x in range(0, 7):
         board.append(["O"] * 8)

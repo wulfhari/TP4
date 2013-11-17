@@ -42,23 +42,32 @@ class GameManagement(object):
         f.close()
     
     def new_game(self):
+        from chess.plateau import Plateau
+        board = Plateau()
         
     def next_turn(self):
         
+        
     def alternance(self):
-        pass
+        player1 = 1
+        player2 = 0
+        
     def echec(self):
         pass
+    
     def transformation(self):
         pass
+    
     def echecEtMat(self):
         pass
-    def PAT(self):
+    
+    def PAT(self, board):
         pass
+            
+    
     def ROC(self):
-        
-    def affichage_plateau(self):
         pass
+    
         
     
     
