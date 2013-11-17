@@ -11,8 +11,7 @@ class Pion(Piece):
     
     def __init__(self,line,col,couleur):
         """Initialise un pion a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
-        self.pos=(line,col)  # Sa position
-        self.color=couleur   # sa couleur
+        Piece.__init__(self,line,col,couleur)
         
     def deplacer(self,nouvPos,plateau):
         if self.deplacementValide(nouvPos,plateau)==True:
