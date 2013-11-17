@@ -24,10 +24,10 @@ class Cavalier(Piece):
                 if Piece.color == self.color:
                     break
                 else:
-                    append.lf(l)
+                    lf.append(l)
                     break
             else:
-                append.lf()
+                lf.append()
         return lf
 
     def deplacer(self,nouvPos,plateau):

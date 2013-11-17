@@ -12,6 +12,6 @@ class Dame(Piece):
 
 
     def __init__(self,line,col,couleur):
-        """Initialise un roi à la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
+        """Initialise un roi a la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         Piece.__init__(self,line,col,couleur)
         

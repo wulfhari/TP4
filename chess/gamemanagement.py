@@ -42,9 +42,9 @@ class GameManagement(object):
         f.close()
     
     def new_game(self):
-        pass
+        
     def next_turn(self):
-        pass
+        
     def alternance(self):
         pass
     def echec(self):
@@ -56,6 +56,6 @@ class GameManagement(object):
     def PAT(self):
         pass
     def ROC(self):
-        pass
+        
     
     

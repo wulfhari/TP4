@@ -25,7 +25,7 @@ class Fou(Piece):
         self.col = col
         self.couleur = couleur
         
-    
+"""  
     def deplacer(self,n_line,n_col,plateau):
         if deplacementValide == True:
             #code ici pour effecturer le deplacement
@@ -53,3 +53,4 @@ class Fou(Piece):
         elif ... pour la colone        
         
 
+"""
