@@ -4,7 +4,7 @@ Created on Nov 4, 2013
 @author: Simon
 '''
 
-class GameManagement():
+class GameManagement(object):
     '''
     classdocs
     '''
@@ -13,7 +13,7 @@ class GameManagement():
         '''
         Constructor
         '''
-        
+        from chess.plateau import Plateau
 ### Alternance des joueurs
 
 ### Echec, echec et mat, pat, ROC
@@ -26,18 +26,21 @@ class GameManagement():
 ### Affichage (plateau, tour de jeu)
 
 
-    def save_game(self):
-        from chess.plateau import Plateau
-                     
-        f = open("output.txt", "w")
+    def save_game(self, Plateau):
         
+                     
+        f = open("save.txt", "w")
         for item in Plateau:
             f.write(str(item) + "\n")
-        
         f.close()
         
     def load_game(self):
-        pass
+        f = open("save.txt", "r")
+        for ln in f:
+            line = f.readline(ln)
+            Plateau.damier[] = line
+        f.close()
+    
     def new_game(self):
         pass
     def next_turn(self):

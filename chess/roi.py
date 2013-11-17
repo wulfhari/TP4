@@ -9,7 +9,7 @@
     """""
 from chess.piece import Piece
 
-class king(Piece):
+class Roi(Piece):
     """Le Roi est une pièce d'échec qui peut se déplacer dans toutes les directions (comme la reine), mais d'une seule case à la fois"""
     
     def __init__(self,line,col,couleur):
