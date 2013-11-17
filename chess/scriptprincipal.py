@@ -56,6 +56,9 @@ from chess.plateau import *
 
             partie = str(input("Que voulez-vous faire? Jouer le tour (J), arr�ter partie et sauvegarder la partie (A) ou simplement sauvegarder la partie (S)? "))
 
+    def commandes():
+        
+    
     ### affichage � chaque tour
 
 
@@ -64,7 +67,10 @@ board = Plateau.damier
 game = "on"
 while game == "on"
     print("Bienvenu dans le jeu Completement Echec v1.0")
-    print("En tout temps, entrez ces commandes Voici les commandes de jeu : nouvelle partie = nv, sauvegarder une partie = ")
+    print("En tout temps, vous pouvez entrer ces commandes pour controler le jeu")
+    print("new : nouvelle partie, save :  sauvegarder une partie, load : charger une partie")
+    print("Pour jouer, entrez la position d'une piece tapez entrer. Puis entrez la position de destination de la piece")
+    print("com : réimprimer ces commandes")
     
    
     """
