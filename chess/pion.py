@@ -17,7 +17,7 @@ class Pion(Piece):
     def deplacer(self,nouvPos,plateau):
         if self.deplacementValide(nouvPos,plateau)==True:
             self.pos=nouvPos
-            self.abouge=True
+            self.abouge=0
         return self.pos
     
     def deplacementValide(self,nouvPos,plateau):
@@ -35,7 +35,7 @@ class Pion(Piece):
         if self.color==0:
             
             #Avancer de deux cases a son premier coup
-            if (pos_dep[0]+2==pos_arr[0]) and (pos_dep[1]==pos_arr[1]) and (self.abouge==False) and pieceDev==None :
+            if (pos_dep[0]+2==pos_arr[0]) and (pos_dep[1]==pos_arr[1]) and (self.abouge==1) and pieceDev==None :
                 return True
         
             #les pions avancent toujours d'une seule case
@@ -60,7 +60,7 @@ class Pion(Piece):
         if self.color==1:
             
             #Avancer de deux cases a son premier coup
-            if (pos_dep[0]-2==pos_arr[0]) and (pos_dep[1]==pos_arr[1]) and (self.abouge==False) and pieceDev==None :
+            if (pos_dep[0]-2==pos_arr[0]) and (pos_dep[1]==pos_arr[1]) and (self.abouge==1) and pieceDev==None :
                 return True
         
             #les pions avancent toujours d'une seule case
