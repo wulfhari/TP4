@@ -27,7 +27,7 @@ class GameManagement(object):
 
 
     def save_game(self, board):
-        
+        from os import path
         f = open("save.txt", "w")
         for item in board:
             f.write(str(item) + "\n")
@@ -61,19 +61,23 @@ class GameManagement(object):
     def next_turn(self):
         pass
         
-    def echec(self):
+    def transformation(self):
         pass
     
-    def transformation(self):
+    def echec(self):
         pass
     
     def echecEtMat(self):
         pass
     
-    def PAT(self, board):
+    def pat(self, board):
         pass
-            
     
+    def en_passant(self):
+        pass
+    
+    def no_suicide(self): 
+        pass
     def ROC(self):
         pass
     
