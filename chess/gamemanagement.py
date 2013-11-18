@@ -79,9 +79,7 @@ class GameManagement(object):
         pass
     
     def echec(self):
-    
-    return True
-    return False
+        hello world
     
     def echecEtMat(self):
         pass
