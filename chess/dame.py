@@ -53,7 +53,7 @@ class Dame(Piece):
             # Deplacement sur la diagonale haut gauche
             elif x<0 and y < 0:
                 while i != x:
-                    if plateau.getPiece(self.pos[0-i, self.pos[1]-i) != None:
+                    if plateau.getPiece(self.pos[0]-i, self.pos[1]-i) != None:
                         return False
                         # Si une piece est sur le chemin, la dame ne peut pas passer
                     else:
@@ -108,7 +108,7 @@ def test_pos():
     from plateau import Plateau
     p = Plateau()
     dn = p.getPiece(0,3)
-    rn = p.getPiece(7,3)
+    db = p.getPiece(7,3)
 
     print(p.damier)
     dn.deplacer((3,0),p) # 0,3 -> 3,0 # Ok
