@@ -22,4 +22,4 @@ path = os.path.join(cwd, "my_file")
 print(path)'''
 
 for key in board.damier:
-    print 'This is a tuple {0}'.format(board.damier[key])
+    print(board.damier[key][0]+board.damier[key][1]+board.damier[key][2]+board.damier[key][3])
