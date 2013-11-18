@@ -112,7 +112,18 @@ class GameManagement(object):
         pass
     
     def echec(self):
-        hello world
+        from plateau import Plateau
+        f = board.damier.values()
+    
+        if active_player == "Noir":
+            n = RN
+        elif active_player == "Blanc":
+            n = RB
+        for i in f:
+            if i[2:] == n:
+                posR = (i[0],i[1])
+            else:
+                pass
     
     def echecEtMat(self):
         pass
