@@ -53,46 +53,46 @@ class Dame(Piece):
             # Rendu ici, il n'y a pas de piece sur le chemin et la piece a l'arrivee
             # est de couleur differente s'il y'en a une.
             return True
-        elif y != 0:
-            if x%y == 0:
-                i = 1
-                # Deplacement sur la diagonale haut gauche
-                if x>0 and y < 0:
-                    while i != x:
-                        if plateau.getPiece(self.pos[0]+i, self.pos[1]-i) != None:
-                            return False
-                            # Si une piece est sur le chemin, la dame ne peut pas passer
-                        else:
-                            i = i+1
-                    return True
-                # Deplacement sur la diagonale haut gauche
-                elif x>0 and y > 0:
-                    while i != x:
-                        if plateau.getPiece(self.pos[0]+i, self.pos[1]+i) != None:
-                            return False
-                            # Si une piece est sur le chemin, la dame ne peut pas passer
-                        else:
-                            i = i+1
-                    return True
-                # Deplacement sur la diagonale haut gauche
-                elif x<0 and y < 0:
-                    while i != x:
-                        if plateau.getPiece(self.pos[0]-i, self.pos[1]-i) != None:
-                            return False
-                            # Si une piece est sur le chemin, la dame ne peut pas passer
-                        else:
-                            i = i+1
-                    return True
-                # Deplacement sur la diagonale haut gauche
-                elif x<0 and y >0:
-                    while i != x:
-                        if plateau.getPiece(self.pos[0]-i, self.pos[1]+i) != None:
-                            return False
-                            # Si une piece est sur le chemin, la dame ne peut pas passer
-                        else:
-                            i = i+1
-                    return True
-
+        elif y == 0:
+            return False
+        elif x%y == 0:
+            i = 1
+            # Deplacement sur la diagonale haut gauche
+            if x>0 and y < 0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0]+i, self.pos[1]-i) != None:
+                        return False
+                        # Si une piece est sur le chemin, la dame ne peut pas passer
+                    else:
+                        i = i+1
+                return True
+            # Deplacement sur la diagonale haut gauche
+            elif x>0 and y > 0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0]+i, self.pos[1]+i) != None:
+                        return False
+                        # Si une piece est sur le chemin, la dame ne peut pas passer
+                    else:
+                        i = i+1
+                return True
+            # Deplacement sur la diagonale haut gauche
+            elif x<0 and y < 0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0]-i, self.pos[1]-i) != None:
+                        return False
+                        # Si une piece est sur le chemin, la dame ne peut pas passer
+                    else:
+                        i = i+1
+                return True
+            # Deplacement sur la diagonale haut gauche
+            elif x<0 and y >0:
+                while i != x:
+                    if plateau.getPiece(self.pos[0]-i, self.pos[1]+i) != None:
+                        return False
+                        # Si une piece est sur le chemin, la dame ne peut pas passer
+                    else:
+                        i = i+1
+                return True
         else: # On a essaye autre chose que les lignes, les colonnes et les diagonales...
             return False
 

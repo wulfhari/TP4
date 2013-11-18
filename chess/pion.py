@@ -121,9 +121,9 @@ def test_pion():
     p.damier[(4,0)]=pb2
     p.damier.pop((5,1))
     print(pb2)
-    pb2.deplacer((3,1))  #invalide, car personne a manger
+    pb2.deplacer((3,1),p)  #invalide, car personne a manger
     print(pb2)
-    pb2.deplacer((3,0))  #(4,0) a (3,0)
+    pb2.deplacer((3,0), p)  #(4,0) a (3,0)
     p.damier[(3,0)]=pb2
     p.damier.pop((4,0))
     print(pb2)

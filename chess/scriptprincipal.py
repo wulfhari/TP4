@@ -56,6 +56,7 @@ if __name__ == '__main__':
     def affichage_plateau():
         from chess.plateau import Plateau
         board = Plateau()
+        list=[]
         
         
         caracteres_unicode_pieces = {'TB': '\u2656',
@@ -70,6 +71,13 @@ if __name__ == '__main__':
                                      'KN': '\u265A',
                                      'QN': '\u265B',
                                      'PN': '\u265F',}
+        for x in range(0,8):
+            list.apprend(["0"]*8)
+            
+        for i in range(0,8):
+            for j in range(0,8):
+                list[i][j]=board.damier[(i,j)]
+            
   
      
     """
