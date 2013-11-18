@@ -1,39 +1,43 @@
 # -*- coding:Utf-8 -*-
 
-def affichage_plateau():
-    from chess.plateau import Plateau
-    from chess.tour import Tour
-    board = Plateau()
-    list=[]
-        
-        
-    caracteres_unicode_pieces = {'TB': '\u2656',
-                                     'CB': '\u2658',
-                                     'FB': '\u2657',
-                                     'KB': '\u2654',
-                                     'QB': '\u2655',
-                                     'PB': '\u2659',
-                                     'TN': '\u265C',
-                                     'CN': '\u265E',
-                                     'FN': '\u265D',
-                                     'KN': '\u265A',
-                                     'QN': '\u265B',
-                                     'PN': '\u265F',}
-    liste1 = board.damier.values()
-    for i in liste1:
-        if i[2:] == 'TN':
-            i == '\u265C'
-    print(liste1)
-    print(str(board.damier.values()))
-                
-                
-          #  if 'TN' in list[i][j]:
-               # list[i][j]=caracteres_unicode_pieces['TN']
-            
-    #for y in range(0,8):
-      #  print(list[y])
-
+def affiche_plateau(board):
+           
+    unicode_dict =  {'TB': '\u2656',
+                     'CB': '\u2658',
+                     'FB': '\u2657',
+                     'RB': '\u2654',
+                     'DB': '\u2655',
+                     'PB': '\u2659',
+                     'TN': '\u265C',
+                     'CN': '\u265E',
+                     'FN': '\u265D',
+                     'RN': '\u265A',
+                     'DN': '\u265B',
+                     'PN': '\u265F',}
     
-affichage_plateau()
+    liste1 = board.damier.values()
+    uni_list = []
+    
+    #Affiche un quadrillage de 0 8*8
+    for x in range(0,8):
+        uni_list.append(["0"]*8)  
+    
+    for i in liste1:
+        if i != None:
+            i = str(i)
+            if i[2:] in unicode_dict:
+                unic = unicode_dict[i[2:]]
+                uni_list[int(i[0])][int(i[1])] = unic
+                
+        
+    for row in uni_list:
+        print(" ".join(row))
+                
 
-               
+from chess.plateau import Plateau
+
+board = Plateau()
+
+affiche_plateau(board)
+
+
