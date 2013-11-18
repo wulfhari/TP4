@@ -37,8 +37,8 @@ if __name__ == '__main__':
             elif user_input.lower =='quit':
                 play = False
             else:
-                GameManagement.next_turn(user_input)
-                
+                GameManagement.next_turn(user_input, board)
+                active_player = GameManagement(active_player)
 
      
         elif debut.upper() == "load":

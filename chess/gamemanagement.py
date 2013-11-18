@@ -17,15 +17,6 @@ class GameManagement(object):
         Constructor
         '''
 
-
-
-
-### Interaction User/plateau
-
-
-### Affichage (plateau, tour de jeu)
-
-
     def save_game(self, board, file_name):
         file_name = file_name+".txt"
         import os
@@ -101,11 +92,12 @@ class GameManagement(object):
             active_player = "Noir"
         return active_player
     
-    def next_turn(self, board):
+    def next_turn(self, user_input, board):
         
         if GameManagement.echecEtMat != True:
             board.tour += 1
-        
+            board.damier[user_input[0],user_input[1]].deplacer[user_input[2],user_input[3], board.damier]
+            
         
 ### Coups Speciaux, Echec, echec et mat, pat, ROC        
         
