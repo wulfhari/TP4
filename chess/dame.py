@@ -53,7 +53,7 @@ class Dame(Piece):
             # Rendu ici, il n'y a pas de piece sur le chemin et la piece a l'arrivee
             # est de couleur differente s'il y'en a une.
             return True
-        elif y != 0:
+        elif y == 0:
             return False
         elif x%y == 0:
             i = 1
