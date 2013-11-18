@@ -16,11 +16,9 @@ class GameManagement(object):
         '''
         Constructor
         '''
-### Alternance des joueurs
 
-### Echec, echec et mat, pat, ROC
 
-### Transformation du pion
+
 
 ### Interaction User/plateau
 
@@ -29,22 +27,19 @@ class GameManagement(object):
 
 
     def save_game(self, board, file_name):
+        file_name = file_name+".txt"
         import os
         cwd = os.getcwd()
         path = os.path.join(cwd, file_name)        
         f = open(path, "w")
-        
-        for key in board:
-            if board[key][2] == T:
-                
-        
+        Line1_list = [board.tour, board.damier[(0,0)].abouge, board.damier[(0,7)].abouge, board.damier[(7,0)].abouge, board.damier[(7,7)].abouge]
+        for i in Line1_list:
+            f.write(str(i)+" ")
+        f.write("\n") 
+               
         for key in board.damier:
             if board.damier[(key)] != None:
-                f.write(board.damier[(key)]+"\n")
-
-            
-        f.write(str(board.tour,+tour.abouge, +tour.abouge, +tour.abouge )+"\n")
-
+                f.write(str((board.damier[(key)]))+"\n")    
         f.close()
 
     def load_game(self, save_file):
@@ -65,7 +60,7 @@ class GameManagement(object):
         return board
         
     
-        
+### Alternance des joueurs        
     def alternance(self, active_player):
         active_player = active_player
         if active_player == "Noir":
@@ -78,7 +73,7 @@ class GameManagement(object):
         board.tour += 1
         
         
-        
+### Coups Speciaux, Echec, echec et mat, pat, ROC        
         
     def transformation(self):
         pass
@@ -97,6 +92,7 @@ class GameManagement(object):
     
     def no_suicide(self): 
         pass
+    
     def ROC(self):
         pass
     
