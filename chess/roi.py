@@ -33,6 +33,7 @@ class Roi(Piece):
     def deplacer(self,nouvPos,plateau):
         if nouvPos in self.posFuturesPossibles(plateau):
             self.pos = nouvPos
+            self.abouge = 0
         # else on ne change rien : on retourne la position courante
         # pour signifier que le changement a eu lieu ... ou pas
         return self.pos
