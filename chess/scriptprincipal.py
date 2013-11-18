@@ -29,7 +29,7 @@ if __name__ == '__main__':
             elif user_input.lower == "load":
                 file_path = str(input(" "))
                 GameManagement.load_game(file_path)
-            elif user_input
+       #     elif user_input
                 
                 GameManagement.next_turn(user_input)
             else:
@@ -50,7 +50,7 @@ if __name__ == '__main__':
         print("Entrez ces commandes pour controler le jeu")
         print("new : nouvelle partie, save :  sauvegarder une partie, load : charger une partie")
         print("Pour jouer, entrez la position d'une piece tapez entrer. Puis entrez la position de destination de la piece")
-        print("Par exemple, (1,1)(1,2) pour deplacer le pion en position (1,1) vers (1,2) ))
+        print("Par exemple, (1,1)(1,2) pour deplacer le pion en position (1,1) vers (1,2)")
         print("Entrez man pour réimprimer ces commandes")
         
     def affichage_plateau():
@@ -77,6 +77,8 @@ if __name__ == '__main__':
         for i in range(0,8):
             for j in range(0,8):
                 list[i][j]=board.damier[(i,j)]
+               # if list[i][j]==
+                
             
   
      
