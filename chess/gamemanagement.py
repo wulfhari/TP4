@@ -35,13 +35,17 @@ class GameManagement(object):
         path = os.path.join(cwd, file_name)        
         f = open(path, "w")
         
-        for piece in board:
-            if board[piece] == Tour(piece,1):
+        for key in board:
+            if board[key][2] == T:
+                
+        
+        for key in board.damier:
+            if board.damier[(key)] != None:
+                f.write(board.damier[(key)]+"\n")
+
             
         f.write(str(board.tour,+tour.abouge, +tour.abouge, +tour.abouge )+"\n")
-        for item in board:
-            
-            f.write(str(item) + "\n")
+
         f.close()
 
     def load_game(self, save_file):
