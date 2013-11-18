@@ -1,26 +1,6 @@
 #! c:/Python33 python
 # -*- coding:Utf8 -*-
 
-
-'''
-Created on Nov 17, 2013
-
-@author: Simon
-'''
-
-from chess.plateau import Plateau
-
-board = Plateau()
-#print(board.damier)
-#print(board.damier[1,1])
-#print(board.damier[1,1].abouge)
-#print('\u2656')
-
-'''import os
-cwd = os.getcwd()
-path = os.path.join(cwd, "my_file")
-print(path)'''
-
 def load_game(file_name):
     
     from chess.plateau import Plateau
@@ -38,17 +18,33 @@ def load_game(file_name):
     import os
     cwd = os.getcwd()
     path = os.path.join(cwd, file_name)
-    print(path)
+    
 
     f = open(path, "r")
     lines = f.readlines()
-    for i in lines:
-        pieces = {'T':Tour, 'C':Cavalier, 'F':Fou, 'D':Dame, 'R':Roi, 'P':Pion}
-        print(i)
-        #print(board.damier[(i[0],i[1])])
-        #board.damier[(i[0],i[1])] = pieces[i[2]](i[0],i[1],i[3])
+    first_line = lines[0]
+    pieces = {'T':Tour, 'C':Cavalier, 'F':Fou, 'D':Dame, 'R':Roi, 'P':Pion}
+    couleur = {'B':1,'N':0}
+    
+    board.tour = first_line[0]
+    
+    for i in range(1,len(lines)):
+        line = lines[i]
+        board.damier[(int(line[0]),int(line[1]))] = pieces[line[2]](int(line[0]),int(line[1]),couleur[line[3]])
+        
+    
+    if board.damier[(7,7)] != None:    
+        board.damier[(7,7)].abouge = int(first_line[2])
+    elif board.damier[(7,0)] != None:    
+        board.damier[(7,0)].abouge = int(first_line[4])
+    elif board.damier[(0,7)] != None:
+        board.damier[(0,7)].abouge = int(first_line[6])
+    elif board.damier[(0,0)] != None:
+        board.damier[(0,0)].abouge = int(first_line[8])
+    
+    
     f.close()
     print(board.damier)
     return board
 
-load_game("tests_prof\jeu1")
+load_game("tests_prof\jeuF")
