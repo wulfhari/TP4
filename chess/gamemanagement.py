@@ -112,19 +112,57 @@ class GameManagement(object):
     def transformation(self):
         pass
     
-    def echec(self):
-        from plateau import Plateau
-        f = board.damier.values()
+def echec(self):
+    from plateau import Plateau
+    from chess.plateau import Plateau
+    from chess.tour import Tour
+    from chess.dame import Dame
+    from chess.roi import Roi
+    from chess.pion import Pion
+    from chess.fou import Fou
+    from chess.cavalier import Cavalier
     
-        if active_player == "Noir":
-            n = RN
-        elif active_player == "Blanc":
-            n = RB
-        for i in f:
-            if i[2:] == n:
-                posR = (i[0],i[1])
-            else:
-                pass
+    f = board.damier.values()
+    lsp = []
+    pk = []
+    
+    if active_player == "Noir":
+        n = N
+        m = B
+    elif active_player == "Blanc":
+        n = B
+        m = N
+    
+    for i in f:
+        if i[2] == "R"+n:
+            posR = (i[0],i[1])
+        else:
+            pass
+    
+    for j in f:
+        if j[2] == "C"+m:
+            lsp.append = (j[0],j[1])
+        elif j[2] == "R"+m:
+            lsp.append = (j[0],j[1])
+    
+    for k in f:
+        if k[2] == "P"+m:
+            pk.append = (k[0],k[1])
+        elif k[2] == "T"+m:
+            pk.append = (k[0],k[1])
+        elif k[2] == "R"+m:
+            pk.append = (k[0],k[1])
+        elif k[2] == "F"+m:
+            pk.append = (k[0],k[1])
+    
+    for l in lsp:
+        if posR in posFuturesPossibles(lsp[l],plateau):
+            return True
+    for h in pk:
+        elif deplacementValide(pk[h],posR,plateau) == True:
+            return True
+    else:
+        return False
     
     def echecEtMat(self):
         pass
