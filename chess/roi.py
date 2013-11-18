@@ -20,14 +20,14 @@ class Roi(Piece):
         lf = []
         cavpos = [[self.pos[0]+1,self.pos[1]-1],[self.pos[0],self.pos[1]-1],[self.pos[0]-1,self.pos[1]-1],[self.pos[0]-1,self.pos[1]],[self.pos[0]-1,self.pos[1]+1],[self.pos[0],self.pos[1]+1],[self.pos[0]+1,self.pos[1]+1],[self.pos[0]+1,self.pos[1]]]
         for l in cavpos:
-            if Piece != None:
-                if Piece.color == self.color:
+            if plateau.getPiece(l[0],l[1]) != None:
+                if plateau.getPiece(l[0],l[1]).color == self.color:
                     break
                 else:
-                    append.lf(l)
+                    lf.append(l)
                     break
             else:
-                append.lf()
+                lf.append(l)
         return lf
     
     def deplacer(self,nouvPos,plateau):
@@ -50,7 +50,7 @@ class Roi(Piece):
 
 
 def test_pos():
-    from plateau import Plateau
+    from chess.plateau import Plateau
     p = Plateau()
     rn = p.getPiece(0,4)
     rb = p.getPiece(7,4)
@@ -58,7 +58,7 @@ def test_pos():
     print(p.damier)
     rn.deplacer((1,4),p) # 0,4 -> 1,4 # Ok
     print(rn)
-    p.damier[(1,4)] = cn1
+    p.damier[(1,4)] = rn
     p.damier.pop((0,4))
     rb.deplacer((6,6),p) # 7,4 -> 6,6 # Ne fais rien / mouvement non autorisé
     rb.deplacer((1,4),p) # 7,4 -> 1,4 # Ne fais rien / mouvement non autorisé
@@ -69,7 +69,7 @@ def test_pos():
     p.damier.pop((7,4))
     rn.deplacer((2,3),p) # 1,4 -> 2,3 # Ok
     print(rn)
-    p.damier[(2,3)] = cn2
+    p.damier[(2,3)] =rn
     p.damier.pop((1,4))
     rb.deplacer((5,3),p) # 6,4 -> 5,3 # Ok
     print(rb)
