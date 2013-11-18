@@ -80,12 +80,13 @@ class Fou(Piece):
     # pour signifier que le changement a eu lieu ... ou pas
             return self.pos
     
+        
     def __repr__(self):
-        """ Petit truc pour l'affichage """
         if self.color == 0:
-            return "Fou Noire"+ str(self.pos)
+            return str(self.pos[0])+str(self.pos[1])+"FN"
         else:
-            return "Fou Blanche"+ str(self.pos)
+            return str(self.pos[0])+str(self.pos[1])+"FB"
+     
 
 
 #-----------------
@@ -105,10 +106,20 @@ def test_pos():
     fb2 = p.getPiece(7,5)
     
     print(p.damier)
+    fn1.deplacer((1,2),p) # 0,2 -> 1,2 # Ne fait rien / mouvement non autorisé
+    print(fn1)
     fn1.deplacer((1,3),p) # 0,2 -> 1,3 # Ok
     print(fn1)
     p.damier[(1,3)] = fn1
     p.damier.pop((0,2))
+    fn1.deplacer((0,4),p) # 1,3 -> 0,4 # Ok
+    print(fn1)
+    p.damier[(0,4)] = fn1
+    p.damier.pop((0,2))
+    fn1.deplacer((4,4),p) # 0,4 -> 4,4 # Ok
+    print(fn1)
+    p.damier[(4,4)] = fn1
+    p.damier.pop((0,2))    
     
     fn2.deplacer((1,5),p) # 0,5 -> 1,5 # Ne fait rien / mouvement non autorisé
     fn2.deplacer((1,7),p) # 0,5 -> 1,7 # Ne fait rien / mouvement non autorisé
@@ -125,37 +136,37 @@ def test_pos():
     print(fn2)
     p.damier[(4,4)] = fn2
     p.damier.pop((3,5))
-    fn1.deplacer((4,0),p) # 1,3 -> 4,0 # OK
-    print(fn1)
     
     fb1.deplacer((6,0),p) # 7,2 -> 6,0 # ne fait rien / mouvement non autorisé
     print(fb1)
-    fb1.deplacer((6,3),p) # 7,1 -> 6,3 # Ok
+    fb1.deplacer((6,1),p) # 7,2 -> 6,1 # Ok
     print(fb1)
-    p.damier[(5,2)] = fb1
-    p.damier.pop((7,1))
-    fb2.deplacer((6,4),p) # 7,6 -> 6,4 # Ok
-    print(fb2)
-    p.damier[(6,4)] = fb2
-    p.damier.pop((7,6))
-    fb2.deplacer((4,3),p) # 6,4 -> 4,3 # Cavalier blanc mange cavalier noire !
-    print(fb2)
-    p.damier[(4,3)] = fb2
-    p.damier.pop((6,4))
-    fn1.deplacer((4,3),p) # 2,2 -> 4,3 # Cn1 mange Cb2
-    print(fn1)
-    p.damier[(4,3)] = fn1
-    p.damier.pop((2,2))
-    fn1.deplacer((5,3),p) # 4,3 -> 5,3 # Ne fais rien / mouvement impossible
-    print(fn1)
-    fb1.deplacer((3,1),p) # 5,2 -> 3,1 # Ok
+    p.damier[(6,1)] = fb1
+    p.damier.pop((7,2))
+    fb1.deplacer((0,3),p) # 6,1 -> 0,3 # Tour blanche mange tour noire !
     print(fb1)
-    p.damier[(5,2)] = fb1
-    p.damier.pop((5,2))
-    fn1.deplacer((3,1),p) # 4,3 -> 3,1 # Ok on mange cb1
-    print(fn1)
-    p.damier[(0,3)] = fn1
-    p.damier.pop((4,3))
+    p.damier[(0,3)] = fb1
+    p.damier.pop((0,0)) 
+        
+    fn2.deplacer((0,3),p) # 0,4 -> 0,3 # Ok on mange à une seule case de distance horizontale
+    print(fn2)
+    p.damier[(0,3)] = fn2
+    p.damier.pop((0,4)) 
+    
+    fb2.deplacer((0,3),p) # 7,7 -> 0,3 # Ne fais rien / Pas même ligne et colonne
+    print(fb2)
+    fb2.deplacer((7,3),p) # 7,7 -> 7,3 # Ok
+    print(fb2)
+    p.damier[(7,3)] = fb2
+    p.damier.pop((7,7)) 
+    fb2.deplacer((1,3),p) # 7,3 -> 1,3 # Ok
+    print(fb2)
+    p.damier[(1,3)] = fb2
+    p.damier.pop((7,3)) 
+    fb2.deplacer((0,3),p) # 1,3 -> 0,3 # Ok on mange à une seule case de distance verticale
+    print(fb2)
+    p.damier[(0,3)] = fb2
+    p.damier.pop((1,3)) 
     print(p.damier)
     
     
