@@ -21,20 +21,34 @@ cwd = os.getcwd()
 path = os.path.join(cwd, "my_file")
 print(path)'''
 
+def load_game(file_name):
+    
+    from chess.plateau import Plateau
+    from chess.tour import Tour
+    from chess.dame import Dame
+    from chess.roi import Roi
+    from chess.pion import Pion
+    from chess.fou import Fou
+    from chess.cavalier import Cavalier
+    
+    board = Plateau()
+    board.damier = {}
+    
+    file_name = file_name+".txt"
+    import os
+    cwd = os.getcwd()
+    path = os.path.join(cwd, file_name)
+    print(path)
 
-file_name = "save"
-file_name = file_name+".txt"
-print(file_name)
-import os
-cwd = os.getcwd()
-path = os.path.join(cwd, file_name)        
-f = open(path, "w")
-Line1_list = [board.tour, board.damier[(0,0)].abouge, board.damier[(0,7)].abouge, board.damier[(7,0)].abouge, board.damier[(7,7)].abouge]
-for i in Line1_list:
-    f.write(str(i)+" ")
-f.write("\n") 
-       
-for key in board.damier:
-    if board.damier[(key)] != None:
-        f.write(str((board.damier[(key)]))+"\n")    
-f.close()
+    f = open(path, "r")
+    lines = f.readlines()
+    for i in lines:
+        pieces = {'T':Tour, 'C':Cavalier, 'F':Fou, 'D':Dame, 'R':Roi, 'P':Pion}
+        print(i)
+        #print(board.damier[(i[0],i[1])])
+        #board.damier[(i[0],i[1])] = pieces[i[2]](i[0],i[1],i[3])
+    f.close()
+    print(board.damier)
+    return board
+
+load_game("tests_prof\jeu1")

@@ -42,7 +42,7 @@ class GameManagement(object):
                 f.write(str((board.damier[(key)]))+"\n")    
         f.close()
 
-    def load_game(self, save_file):
+    def load_game(self, file_name):
         from chess.plateau import Plateau
         f = open(save_file, "r")
         board = Plateau()
