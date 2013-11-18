@@ -38,11 +38,10 @@ class Cavalier(Piece):
         return self.pos
     
     def __repr__(self):
-        """ Petit truc pour l'affichage """
         if self.color == 0:
-            return "Cavalier Noir"+str(self.pos)
+            return str(self.pos[0])+str(self.pos[1])+"CN"
         else:
-            return "Cavalier Blanc"+str(self.pos)
+            return str(self.pos[0])+str(self.pos[1])+"CB"
 
 
 #-----------------

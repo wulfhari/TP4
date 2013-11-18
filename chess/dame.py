@@ -95,9 +95,9 @@ class Dame(Piece):
 
     def __repr__(self):
         if self.color == 0:
-            return self.pos[0],self.pos[1],"D","N"
+            return str(self.pos[0])+str(self.pos[1])+"DN"
         else:
-            return self.pos[0],self.pos[1],"D","B"
+            return str(self.pos[0])+str(self.pos[1])+"DB"
 
 #-----------------
 # FIN CLASSE DAME
