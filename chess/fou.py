@@ -80,9 +80,8 @@ class Fou(Piece):
     def deplacer(self,nouvPos,plateau):
         if self.deplacementValide(nouvPos,plateau):
             self.pos = nouvPos
-    # else on ne change rien : on retourne la position courante
-    # pour signifier que le changement a eu lieu ... ou pas
-            return self.pos
+      
+        return self.pos # else on ne change rien : on retourne la position courante pour signifier que le changement a eu lieu ... ou pas
     
         
     def __repr__(self):
@@ -117,9 +116,9 @@ def test_pos():
     p.damier[(1,3)] = fn1
     p.damier.pop((0,2))
     fn1.deplacer((0,4),p) # 1,3 -> 0,4 # Ok
-    print(fn1)
     p.damier[(0,4)] = fn1
     p.damier.pop(1,3)
+    print(fn1)
     fn1.deplacer((4,4),p) # 0,4 -> 4,4 # Ok
     print(fn1)
     p.damier[(4,4)] = fn1
