@@ -20,22 +20,22 @@ class Cavalier(Piece):
         lf = []
         cavpos = [[self.pos[0]+1,self.pos[1]+2],[self.pos[0]+2,self.pos[1]+1],[self.pos[0]+2,self.pos[1]-1],[self.pos[0]+1,self.pos[1]-2],[self.pos[0]-1,self.pos[1]-2],[self.pos[0]-2,self.pos[1]-1],[self.pos[0]-2,self.pos[1]+1],[self.pos[0]-1,self.pos[1]+2]]
         for l in cavpos:
-            if Piece != None:
-                if Piece.color == self.color:
+            if plateau.getPiece(l[0],l[1]) != None:
+                if plateau.getPiece(l[0],l[1]).color == self.color:
                     break
                 else:
                     lf.append(l)
                     break
             else:
-                lf.append()
+                lf.append(l)
         return lf
 
     def deplacer(self,nouvPos,plateau):
         if nouvPos in self.posFuturesPossibles(plateau):
             self.pos = nouvPos
-        # else on ne change rien : on retourne la position courante
+        else:
+            return self.pos# else on ne change rien : on retourne la position courante
         # pour signifier que le changement a eu lieu ... ou pas
-        return self.pos
     
     def __repr__(self):
         """ Petit truc pour l'affichage """
