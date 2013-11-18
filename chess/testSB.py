@@ -2,6 +2,7 @@
 
 def affichage_plateau():
     from chess.plateau import Plateau
+    from chess.tour import Tour
     board = Plateau()
     list=[]
         
@@ -18,21 +19,21 @@ def affichage_plateau():
                                      'KN': '\u265A',
                                      'QN': '\u265B',
                                      'PN': '\u265F',}
-    for x in range(0,8):
-        list.append(["0"]*8)
+    liste1 = board.damier.values()
+    for i in liste1:
+        if i[2:] == 'TN':
+            i == '\u265C'
+    print(liste1)
+    print(str(board.damier.values()))
+                
+                
+          #  if 'TN' in list[i][j]:
+               # list[i][j]=caracteres_unicode_pieces['TN']
             
-    for i in range(0,8):
-        for j in range(0,8):
-           # if board.damier[i][j] != None:
-            list[i][j]=board.damier[(i,j)]
-            if 'TN' in str(list[i][j]):
-                list[i][j]=caracteres_unicode_pieces['TN']
-            
-    for y in range(0,8):
-        print(list[y])
-    #print(list)
-    #print(str(list[0][0]))
-    print(c for c,v in board.damier.items() if v=="00TN")
+    #for y in range(0,8):
+      #  print(list[y])
+
     
 affichage_plateau()
+
                
