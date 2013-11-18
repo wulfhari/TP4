@@ -92,7 +92,8 @@ class Dame(Piece):
                         else:
                             i = i+1
                     return True
-
+            else: # On a essaye autre chose que les lignes, les colonnes et les diagonales...
+                return False
         else: # On a essaye autre chose que les lignes, les colonnes et les diagonales...
             return False
 
