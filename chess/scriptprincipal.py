@@ -20,7 +20,7 @@ if __name__ == '__main__':
         print("Par exemple, 1,1,1,2 pour deplacer le pion en position (1,1) vers (1,2)")
         print("Entrez man pour réimprimer ces commandes")
         print("Tapez 'quit' pour terminer la partie")
-    return
+    
 
 
 
@@ -63,34 +63,66 @@ if __name__ == '__main__':
     ### Menu principal( jeu par cr�ation, jeu par chargement)
     
     from chess.gamemanagement import GameManagement 
+    GM = GameManagement()
     debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie 'new' ou charger une partie existante 'load'? "))
     play = True
     active_player = "Noir"
+    numbers = ['0','1','2','3','4','5','6','7']
     while play:
         if debut.lower() == "new":
-            board = GameManagement.new_game()
             
-            user_input = input("C'est au tour des "+ GameManagement.alternance(active_player) +" a jouer.")
-            if user_input.lower == "man":
-                manuel()
-            elif user_input.lower == "save":
-                file_path = str(input(" "))
-                GameManagement.save_game(file_path)  
-            elif user_input.lower =='quit':
-                play = False
-            else:
-                GameManagement.next_turn(user_input, board)
-                active_player = GameManagement(active_player)
-
+            board = GM.new_game()
+            affiche_plateau(board)
+            user_input = input("C'est au tour des "+ GM.alternance(active_player) +" a jouer.")
+            while play:
+                if user_input.lower() == "man":
+                    manuel()
+                elif user_input.lower() == "save":
+                    file_name = str(input(" Entrez le nom du fichier de sauvegarde "))
+                    GM.save_game(file_name)  
+                elif user_input.lower() =='quit':
+                    play = False
+                    
+                elif user_input.lower()[0] in numbers:
+                    GM.next_turn(user_input, board)
+                    active_player = GM.alternance(active_player)
+                    affiche_plateau(board)
+                    user_input = input("C'est au tour des "+ GM.alternance(active_player) +" a jouer.")
+                    
+                else:
+                    print("Ceci n'est pas une commande reconnue")
+                    manuel()
      
-        elif debut.upper() == "load":
-            save_name = input("Entrez le nom du fichier de sauvegarde sans l'extension")
-            board = GameManagement.load_game(save_name)
-            GameManagement.next_turn()
+        elif debut.lower() == "load":
+            save_name = str(input("Entrez le nom du fichier de sauvegarde sans l'extension"))
+            board = GM.load_game(save_name)
+            affiche_plateau(board)
+            if board.damier.tour//2 == 0:
+                active_player = 'Blanc'
+            else:
+                active_player = 'Noir'
+                       
+            user_input = input("C'est au tour des "+ active_player +" a jouer.")
             
+            while play:
+                if user_input.lower() == "man":
+                    manuel()
+                elif user_input.lower() == "save":
+                    file_name = str(input(" Entrez le nom du fichier de sauvegarde "))
+                    GM.save_game(file_name)  
+                elif user_input.lower() =='quit':
+                    play = False
+                    
+                elif user_input.lower()[0] in numbers:
+                    GM.next_turn(user_input, board)
+                    active_player = GameManagement.alternance(active_player)
+                else:
+                    print("Ceci n'est pas une commande reconnue")
+                    manuel()
+                    
         else:
             print("Desole cette commande est inconnue")
-            manuel()
+            debut = str(input("Entrez 'new' ou 'load' pour commencer une partie."))
 
 
     ### Menu ( jouer le tour, arr�ter et sauvegarder)
