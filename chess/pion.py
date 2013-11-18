@@ -96,20 +96,48 @@ def test_pion():
     pn2 = p.getPiece(1,1)
     pb1 = p.getPiece(6,0)
     pb2 = p.getPiece(6,1)
+ 
     
     print(p.damier)
-    pn1.deplacer((2,0),p)
-    pn2.deplacer((3,1),p)
-    pb1.deplacer((4,0),p)
+    pn2.deplacer((3,1),p)  #(1,1) a (3,1) ok
+    p.damier[(3,1)]=pn2
+    p.damier.pop((1,1))
+    print(pn2)
+    pb1.deplacer((4,0),p)   #(6,0) a (4,0) ok
+    p.damier[(4,0)]=pb1
+    p.damier.pop((6,0))
+    print(pb1)
     pn2.deplacer((4,0),p) #pn2 mange pb1
-    pb2.deplacer((5,1),p)
+    p.damier[(4,0)]=pn2
+    p.damier.pop((3,1))
+    print(pn2)
+    pb2.deplacer((5,1),p)  #(6,1) a (5,1)
+    p.damier[(5,1)]=pb2
+    p.damier.pop((6,1))
+    print(pb2)
     pb2.deplacer((3,1),p) #invalide, avance de 2 a son 2ieme coup
-    pn2.deplacer((5,1),p) #invalide, personne a manger
-    
-    
-    
+    print(pb2)
+    pb2.deplacer((4,0),p)   #pb2 mange pn2
+    p.damier[(4,0)]=pb2
+    p.damier.pop((5,1))
+    print(pb2)
+    pb2.deplacer((3,1))  #invalide, car personne a manger
+    print(pb2)
+    pb2.deplacer((3,0))  #(4,0) a (3,0)
+    p.damier[(3,0)]=pb2
+    p.damier.pop((4,0))
+    print(pb2)
+    pn1.deplacer((3,0),p)   #invalide car pb2 sur la case
+    print(pn1)
+    pb2.deplacer((2,0),p)   #(3,0) a (2,0)
+    p.damier[(2,0)]=pb2
+    p.damier.pop((3,0))
+    print(pb2)
+    pn1.deplacer((3,0),p)   #invalide car saute par dessus pb2
+    print(pn1)
+    pb2.deplacer((1,0),p)   #invalide car peut pas manger en ligne droite
+    print(p.damier)
 
-    
 
 
 if __name__=="__main__":
