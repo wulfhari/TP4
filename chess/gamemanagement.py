@@ -16,7 +16,6 @@ class GameManagement(object):
         '''
         Constructor
         '''
-        from chess.plateau import Plateau
 ### Alternance des joueurs
 
 ### Echec, echec et mat, pat, ROC

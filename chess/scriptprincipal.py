@@ -13,30 +13,30 @@ if __name__ == '__main__':
 
     ### Menu principal( jeu par cr�ation, jeu par chargement)
     
-    from chess.gamemanagement import * 
+    from chess.gamemanagement import GameManagement 
     debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie 'new' ou charger une partie existante 'load'? "))
     play = True
     premier_tour = "Noir"
     while play:
         if debut.lower() == "new":
-            board = new_game()
-            user_input = input("C'est au tour des "+ alternance(premier_tour) +" a jouer.")
+            board = GameManagement.new_game()
+            user_input = input("C'est au tour des "+ GameManagement.alternance(premier_tour) +" a jouer.")
             if user_input == "man":
                 manuel()
             elif user_input.lower == "save":
                 file_path = str(input(" "))
-                save_game(file_path)
+                GameManagement.save_game(file_path)
             elif user_input.lower == "load":
                 file_path = str(input(" "))
-                load_game(file_path)
+                GameManagement.load_game(file_path)
             elif user_input
                 
-                next_turn(user_input)
+                GameManagement.next_turn(user_input)
             else:
                 manuel()
             
         elif debut.upper() == "load":
-            board = load_game()
+            board = GameManagement.load_game()
             next_turn()
             
         else:
