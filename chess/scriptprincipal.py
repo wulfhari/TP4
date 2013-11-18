@@ -10,34 +10,41 @@ Created on Nov 4, 2013
 if __name__ == '__main__':
     
 #from chess.plateau import *
-
+    def manuel():
+        print("Entrez ces commandes pour controler le jeu")
+        print("new : nouvelle partie, save :  sauvegarder une partie, load : charger une partie")
+        print("Pour jouer, entrez la position d'une piece tapez entrer. Puis entrez la position de destination de la piece")
+        print("Par exemple, 1,1,1,2 pour deplacer le pion en position (1,1) vers (1,2)")
+        print("Entrez man pour réimprimer ces commandes")
+        print("Tapez 'quit' pour terminer la partie")
+    return
     ### Menu principal( jeu par cr�ation, jeu par chargement)
     
     from chess.gamemanagement import GameManagement 
     debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie 'new' ou charger une partie existante 'load'? "))
     play = True
-    premier_tour = "Noir"
+    active_player = "Noir"
+    
     while play:
         if debut.lower() == "new":
             board = GameManagement.new_game()
-            user_input = input("C'est au tour des "+ GameManagement.alternance(premier_tour) +" a jouer.")
-            if user_input == "man":
+            user_input = input("C'est au tour des "+ GameManagement.alternance(active_player) +" a jouer.")
+            if user_input.lower == "man":
                 manuel()
             elif user_input.lower == "save":
                 file_path = str(input(" "))
-                GameManagement.save_game(file_path)
-            elif user_input.lower == "load":
-                file_path = str(input(" "))
-                GameManagement.load_game(file_path)
-       #     elif user_input
-                
-                GameManagement.next_turn(user_input)
+                GameManagement.save_game(file_path)  
+            elif user_input.lower =='quit':
+                play = False
             else:
-                manuel()
-            
+                GameManagement.next_turn(user_input)
+                
+
+     
         elif debut.upper() == "load":
-            board = GameManagement.load_game()
-            next_turn()
+            save_name = input("Entrez le nom du fichier de sauvegarde sans l'extension")
+            board = GameManagement.load_game(save_name)
+            GameManagement.next_turn()
             
         else:
             print("Desole cette commande est inconnue")
@@ -46,13 +53,7 @@ if __name__ == '__main__':
 
     ### Menu ( jouer le tour, arr�ter et sauvegarder)
     
-    def manuel():
-        print("Entrez ces commandes pour controler le jeu")
-        print("new : nouvelle partie, save :  sauvegarder une partie, load : charger une partie")
-        print("Pour jouer, entrez la position d'une piece tapez entrer. Puis entrez la position de destination de la piece")
-        print("Par exemple, (1,1)(1,2) pour deplacer le pion en position (1,1) vers (1,2)")
-        print("Entrez man pour réimprimer ces commandes")
-        
+         
     def affichage_plateau():
         from chess.plateau import Plateau
         board = Plateau()

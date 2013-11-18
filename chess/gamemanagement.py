@@ -95,7 +95,6 @@ class GameManagement(object):
     
 ### Alternance des joueurs        
     def alternance(self, active_player):
-        active_player = active_player
         if active_player == "Noir":
             active_player = "Blanc"
         elif active_player == "Blanc":
@@ -103,7 +102,9 @@ class GameManagement(object):
         return active_player
     
     def next_turn(self, board):
-        board.tour += 1
+        
+        if GameManagement.echecEtMat != True:
+            board.tour += 1
         
         
 ### Coups Speciaux, Echec, echec et mat, pat, ROC        
