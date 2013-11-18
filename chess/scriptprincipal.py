@@ -70,6 +70,8 @@ if __name__ == '__main__':
                                      'KN': '\u265A',
                                      'QN': '\u265B',
                                      'PN': '\u265F',}
+        for x in range(0,8):
+            board.apprend(["0"]*8)
   
      
     """
