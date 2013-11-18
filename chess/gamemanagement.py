@@ -48,8 +48,10 @@ class GameManagement(object):
         from chess.plateau import Plateau
         f = open(save_file, "r")
         board = Plateau()
-        for ln in f:
+        board.damier = {}
+        for ln in range(1,len(f)):
             line = f.readline(ln)
+            line[0] = 
             board[line()] = line()
         return board
         f.close()

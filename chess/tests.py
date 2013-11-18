@@ -21,5 +21,6 @@ cwd = os.getcwd()
 path = os.path.join(cwd, "my_file")
 print(path)'''
 
-#for key in board.damier:
-print(board.damier[(1,0)])
+for key in board.damier:
+    if key != None:
+        print(board.damier[(key)])
