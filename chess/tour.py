@@ -67,59 +67,57 @@ class Tour(Piece):
 #-----------------
 
 def test_pos():
-        from chess.plateau import Plateau
-        p = Plateau()
-        tn1 = p.getPiece(0,0)
-        tn2 = p.getPiece(0,7)
-        tb1 = p.getPiece(7,0)
-        tb2 = p.getPiece(7,7)
-        
-        print(p.damier)
-        tn1.deplacer((0,3),p) # 0,0 -> 0,3 # Ok
-        print(tn1)
-        p.damier[(0,3)] = tn1
-        p.damier.pop((0,0))
-        
-        tn2.deplacer((0,1),p) # 0,7 -> 0,1 # Ne fais rien / tn1 dans le chemin
-        tn2.deplacer((0,1),p) # 0,7 -> 0,3 # Ne fais rien / tn1 à l'arrivée
-        print(tn2)
-        tn2.deplacer((0,4),p) # 0,7 -> 0,4 # Ok
-        print(tn2)
-        p.damier[(0,4)] = tn2
-        p.damier.pop((0,7))
-        tb1.deplacer((0,3),p) # 7,0 -> 0,3 # ne fais rien / Pas même ligne et colonne
-        print(tb1)
-        tb1.deplacer((0,0),p) # 7,0 -> 0,0 # Ok
-        print(tb1)
-        p.damier[(0,0)] = tb1
-        p.damier.pop((7,0))
-        tb1.deplacer((0,3),p) # 0,0 -> 0,3 # Tour blanche mange tour noire !
-        print(tb1)
-        p.damier[(0,3)] = tb1
-        p.damier.pop((0,0)) 
-        tn2.deplacer((0,3),p) # 0,4 -> 0,3 # Ok on mange à une seule case de distance horizontale
-        print(tn2)
-        p.damier[(0,3)] = tn2
-        p.damier.pop((0,4)) 
-        tb2.deplacer((0,3),p) # 7,7 -> 0,3 # Ne fais rien / Pas même ligne et colonne
-        print(tb2)
-        tb2.deplacer((7,3),p) # 7,7 -> 7,3 # Ok
-        print(tb2)
-        p.damier[(7,3)] = tb2
-        p.damier.pop((7,7)) 
-        tb2.deplacer((1,3),p) # 7,3 -> 1,3 # Ok
-        print(tb2)
-        p.damier[(1,3)] = tb2
-        p.damier.pop((7,3)) 
-        tb2.deplacer((0,3),p) # 1,3 -> 0,3 # Ok on mange à une seule case de distance verticale
-        print(tb2)
-        p.damier[(0,3)] = tb2
-        p.damier.pop((1,3)) 
-        print(p.damier)
+    from chess.plateau import Plateau
+    p = Plateau()
+    tn1 = p.getPiece(0,0)
+    tn2 = p.getPiece(0,7)
+    tb1 = p.getPiece(7,0)
+    tb2 = p.getPiece(7,7)
+    
+    print(p.damier)
+    tn1.deplacer((0,3),p) # 0,0 -> 0,3 # Ok
+    print(tn1)
+    p.damier[(0,3)] = tn1
+    p.damier.pop((0,0))
+    tn2.deplacer((0,1),p) # 0,7 -> 0,1 # Ne fais rien / tn1 dans le chemin
+    tn2.deplacer((0,1),p) # 0,7 -> 0,3 # Ne fais rien / tn1 à l'arrivée
+    print(tn2)
+    tn2.deplacer((0,4),p) # 0,7 -> 0,4 # Ok
+    print(tn2)
+    p.damier[(0,4)] = tn2
+    p.damier.pop((0,7))
+    tb1.deplacer((0,3),p) # 7,0 -> 0,3 # ne fais rien / Pas même ligne et colonne
+    print(tb1)
+    tb1.deplacer((0,0),p) # 7,0 -> 0,0 # Ok
+    print(tb1)
+    p.damier[(0,0)] = tb1
+    p.damier.pop((7,0))
+    tb1.deplacer((0,3),p) # 0,0 -> 0,3 # Tour blanche mange tour noire !
+    print(tb1)
+    p.damier[(0,3)] = tb1
+    p.damier.pop((0,0)) 
+    tn2.deplacer((0,3),p) # 0,4 -> 0,3 # Ok on mange à une seule case de distance horizontale
+    print(tn2)
+    p.damier[(0,3)] = tn2
+    p.damier.pop((0,4)) 
+    tb2.deplacer((0,3),p) # 7,7 -> 0,3 # Ne fais rien / Pas même ligne et colonne
+    print(tb2)
+    tb2.deplacer((7,3),p) # 7,7 -> 7,3 # Ok
+    print(tb2)
+    p.damier[(7,3)] = tb2
+    p.damier.pop((7,7)) 
+    tb2.deplacer((1,3),p) # 7,3 -> 1,3 # Ok
+    print(tb2)
+    p.damier[(1,3)] = tb2
+    p.damier.pop((7,3)) 
+    tb2.deplacer((0,3),p) # 1,3 -> 0,3 # Ok on mange à une seule case de distance verticale
+    print(tb2)
+    p.damier[(0,3)] = tb2
+    p.damier.pop((1,3)) 
+    print(p.damier)
                 
    
 if __name__ == "__main__":
-    
     test_pos()     
     
         
