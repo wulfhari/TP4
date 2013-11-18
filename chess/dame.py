@@ -94,7 +94,6 @@ class Dame(Piece):
             return False
 
     def __repr__(self):
-    """ Petit truc pour l'affichage """
         if self.color == 0:
             return "Reine Noire "+str(self.pos)
         else:
