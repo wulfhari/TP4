@@ -6,6 +6,7 @@ Created on Nov 16, 2013
 from chess.piece import Piece
 
 class Dame(Piece):
+    unicode_dameb='\u2655'
 
     """La reine est une piece d'echec qui peut se deplacer dans toutes les directions sans limites de cases. Ne peut passer par dessus une piece"""
 
