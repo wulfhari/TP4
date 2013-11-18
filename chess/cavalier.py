@@ -38,10 +38,11 @@ class Cavalier(Piece):
         return self.pos
     
     def __repr__(self):
+        """ Petit truc pour l'affichage """
         if self.color == 0:
-            return str(self.pos[0])+str(self.pos[1])+"CN"
+            return "Cavalier Noir"+str(self.pos)
         else:
-            return str(self.pos[0])+str(self.pos[1])+"CB"
+            return "Cavalier Blanc"+str(self.pos)
 
 
 #-----------------
@@ -65,6 +66,7 @@ def test_pos():
     print(cn1)
     p.damier[(2,2)] = cn1
     p.damier.pop((0,1))
+    
     cn2.deplacer((0,5),p) # 0,6 -> 0,5 # Ne fais rien / mouvement non autorisé
     cn2.deplacer((3,6),p) # 0,6 -> 3,6 # Ne fais rien / mouvement non autorisé
     print(cn2)

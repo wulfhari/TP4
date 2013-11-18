@@ -20,6 +20,10 @@ class Fou(Piece):
         x = nouvPos[0]-self.pos[0]
         y = nouvPos[1]-self.pos[1]
         
+        if y == 0:  
+            print("Coup invalide")
+            return False
+        
         if x%y == 0:
             pos_dep = self.pos
             pos_arr = nouvPos
@@ -115,58 +119,47 @@ def test_pos():
     fn1.deplacer((0,4),p) # 1,3 -> 0,4 # Ok
     print(fn1)
     p.damier[(0,4)] = fn1
-    p.damier.pop((0,2))
+    p.damier.pop(1,3)
     fn1.deplacer((4,4),p) # 0,4 -> 4,4 # Ok
     print(fn1)
     p.damier[(4,4)] = fn1
-    p.damier.pop((0,2))    
+    p.damier.pop((0,4))    
     
-    fn2.deplacer((1,5),p) # 0,5 -> 1,5 # Ne fait rien / mouvement non autorisé
-    fn2.deplacer((1,7),p) # 0,5 -> 1,7 # Ne fait rien / mouvement non autorisé
+    fn2.deplacer((4,5),p) # 0,5 -> 4,5 # Ne fait rien / mouvement non autorisé
+    fn2.deplacer((2,7),p) # 0,5 -> 2,7 # Ok
+    p.damier[(2,7)] = fn1
+    p.damier.pop((0,5)) 
     print(fn2)
-    fn2.deplacer((1,4),p) # 0,5 -> 1,4 # Ok
+    fn2.deplacer((6,3),p) # 2,7 -> 6,3 # Ok
     print(fn2)
-    p.damier[(1,4)] = fn2
-    p.damier.pop((0,5))    
-    fn2.deplacer((3,5),p) # 1,4 -> 3,5 # Ne fait rien / mouvement non autorisé
+    p.damier[(6,3)] = fn2
+    p.damier.pop((2,7))    
+    fn2.deplacer((7,3),p) # 6,3 -> 7,3 # Ne fait rien / mouvement non autorisé
     print(fn2)
-    p.damier[(3,5)] = fn2
-    p.damier.pop((1,4))
-    fn2.deplacer((4,4),p) # 3,5 -> 4,4 # Ok
-    print(fn2)
-    p.damier[(4,4)] = fn2
-    p.damier.pop((3,5))
-    
+        
     fb1.deplacer((6,0),p) # 7,2 -> 6,0 # ne fait rien / mouvement non autorisé
     print(fb1)
     fb1.deplacer((6,1),p) # 7,2 -> 6,1 # Ok
     print(fb1)
     p.damier[(6,1)] = fb1
     p.damier.pop((7,2))
-    fb1.deplacer((0,3),p) # 6,1 -> 0,3 # Tour blanche mange tour noire !
+    fb1.deplacer((4,3),p) # 6,1 -> 4,3 # Ok
     print(fb1)
-    p.damier[(0,3)] = fb1
-    p.damier.pop((0,0)) 
+    p.damier[(4,3)] = fb1
+    p.damier.pop((6,1)) 
         
-    fn2.deplacer((0,3),p) # 0,4 -> 0,3 # Ok on mange à une seule case de distance horizontale
-    print(fn2)
-    p.damier[(0,3)] = fn2
-    p.damier.pop((0,4)) 
-    
-    fb2.deplacer((0,3),p) # 7,7 -> 0,3 # Ne fais rien / Pas même ligne et colonne
+    fb2.deplacer((6,4),p) # 7,5 -> 6,4 # Ne fait rien / Pas même ligne et colonne
     print(fb2)
-    fb2.deplacer((7,3),p) # 7,7 -> 7,3 # Ok
+    fb2.deplacer((5,7),p) # 7,5 -> 5,7 # Ok
     print(fb2)
-    p.damier[(7,3)] = fb2
-    p.damier.pop((7,7)) 
-    fb2.deplacer((1,3),p) # 7,3 -> 1,3 # Ok
+    p.damier[(5,7)] = fb2
+    p.damier.pop((7,5)) 
+    fb2.deplacer((5,5),p) # 5,7 -> 5,5 # Ne fait rien / Pas même ligne et colonne
     print(fb2)
-    p.damier[(1,3)] = fb2
-    p.damier.pop((7,3)) 
-    fb2.deplacer((0,3),p) # 1,3 -> 0,3 # Ok on mange à une seule case de distance verticale
+    fb2.deplacer((3,5),p) # 5,7 -> 3,5 # Ok 
     print(fb2)
-    p.damier[(0,3)] = fb2
-    p.damier.pop((1,3)) 
+    p.damier[(3,5)] = fb2
+    p.damier.pop((5,7)) 
     print(p.damier)
     
     
