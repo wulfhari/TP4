@@ -85,18 +85,26 @@ class GameManagement(object):
         
     
 ### Alternance des joueurs        
-    def alternance(self, active_player):
+    def alternance(self, board):
+        
+        if board.damier.tour//2 == 0:
+            active_player = 'Blanc'
+        else:
+            active_player = 'Noir'
+        return active_player        
+        '''        
         if active_player == "Noir":
             active_player = "Blanc"
         elif active_player == "Blanc":
             active_player = "Noir"
         return active_player
+        '''
     
     def next_turn(self, user_input, board):
         
         
         #if GameManagement.echecEtMat != True:
-        board.tour += 1
+        
         board.damier[(int(user_input[0]),int(user_input[1]))].deplacer((int(user_input[2]),int(user_input[3])), board)
            
         

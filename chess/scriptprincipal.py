@@ -60,20 +60,23 @@ if __name__ == '__main__':
   
  
     
-    ### Menu principal( jeu par cr�ation, jeu par chargement)
+    ### Menu principal jeu par creation, jeu par chargement
     
     from chess.gamemanagement import GameManagement 
     GM = GameManagement()
-    debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie 'new' ou charger une partie existante 'load'? "))
-    play = True
+    debut = str(input("Bonjour! Voulez-vous creer une nouvelle partie 'new'; charger une partie existante 'load'?; ou quitter 'quit' "))
+    on = True
     active_player = "Noir"
     numbers = ['0','1','2','3','4','5','6','7']
-    while play:
+    while on:
         if debut.lower() == "new":
-            
+            play = True
             board = GM.new_game()
             affiche_plateau(board)
-            user_input = input("C'est au tour des "+ GM.alternance(active_player) +" a jouer.")
+            user_input = input("C'est au tour des "+ GM.alternance(board) +" a jouer.")
+            
+            ###  jouer le tour, arreter , sauvegarder, manuel d instruction
+            
             while play:
                 if user_input.lower() == "man":
                     manuel()
@@ -85,24 +88,26 @@ if __name__ == '__main__':
                     
                 elif user_input.lower()[0] in numbers:
                     GM.next_turn(user_input, board)
-                    active_player = GM.alternance(active_player)
-                    affiche_plateau(board)
-                    user_input = input("C'est au tour des "+ GM.alternance(active_player) +" a jouer.")
-                    
+                    if board.damier[(int(user_input[0]),int(user_input[1]))] == None:
+                        board.tour += 1
+                        active_player = GM.alternance(active_player)
+                        affiche_plateau(board)
+                        user_input = input("C'est au tour des "+ GM.alternance(active_player) +" a jouer.")
+                    else:
+                        print('Ce coup est invalide entrez de nouvelles coordonnees')
+                        user_input = input("C'est au tour des "+ GM.alternance(active_player) +" a jouer.")
                 else:
                     print("Ceci n'est pas une commande reconnue")
                     manuel()
      
         elif debut.lower() == "load":
+            play = True
             save_name = str(input("Entrez le nom du fichier de sauvegarde sans l'extension"))
             board = GM.load_game(save_name)
             affiche_plateau(board)
-            if board.damier.tour//2 == 0:
-                active_player = 'Blanc'
-            else:
-                active_player = 'Noir'
+            
                        
-            user_input = input("C'est au tour des "+ active_player +" a jouer.")
+            user_input = input("C'est au tour des "+ GM.active_player(board) +" a jouer.")
             
             while play:
                 if user_input.lower() == "man":
@@ -119,13 +124,16 @@ if __name__ == '__main__':
                 else:
                     print("Ceci n'est pas une commande reconnue")
                     manuel()
+        elif debut == 'quit':
+            print('Bebye')
+            on = False
                     
         else:
             print("Desole cette commande est inconnue")
             debut = str(input("Entrez 'new' ou 'load' pour commencer une partie."))
 
 
-    ### Menu ( jouer le tour, arr�ter et sauvegarder)
+  
     
          
     
