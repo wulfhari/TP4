@@ -15,8 +15,10 @@ class Pion(Piece):
         
     def deplacer(self,nouvPos,plateau):
         if self.deplacementValide(nouvPos,plateau)==True:
+            plateau.damier[]
             self.pos=nouvPos
             self.abouge=0
+            
         return self.pos
     
     def deplacementValide(self,nouvPos,plateau):
@@ -25,7 +27,11 @@ class Pion(Piece):
         
         #Si une piece alliee est sur la case d'arrivee
         pieceArr=plateau.getPiece(pos_arr[0],pos_arr[1])
-        pieceDev=plateau.getPiece(pos_dep[0]+1,pos_dep[1])  #Pour le saut de deux cases
+        if self.color==0:
+            pieceDev=plateau.getPiece(pos_dep[0]+1,pos_dep[1])
+        else:
+            pieceDev=plateau.getPiece(pos_dep[0]-1,pos_dep[1])
+        #Pour le saut de deux cases
         if (pieceArr != None) and (pieceArr.color == self.color) :
             return False
        
