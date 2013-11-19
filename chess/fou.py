@@ -15,7 +15,15 @@ class Fou(Piece):
     def __init__(self,line,col,couleur):
         """Initialise un fou a la position 'ligne,colonne' avec la bonne couleur 0 pour noir, 1 pour blanc"""
         Piece.__init__(self,line,col,couleur)
-        
+ 
+    def deplacer(self,nouvPos,plateau):
+        if self.deplacementValide(nouvPos,plateau):
+            plateau.damier[nouvPos] = self
+            plateau.damier[self.pos] = None
+            self.pos=nouvPos
+            self.abouge=0
+            
+        return self.pos       
     def deplacementValide(self,nouvPos,plateau):
         x = nouvPos[0]-self.pos[0]
         y = nouvPos[1]-self.pos[1]
@@ -23,9 +31,9 @@ class Fou(Piece):
         if y == 0:  
             print("Coup invalide")
             return False
-        
+        if y == 0:
+            return False
         if x % y == 0:
-            pos_dep = self.pos
             pos_arr = nouvPos
             i = 1
             #Si une pièce à l'arrivée et identique à la couleur du fou
@@ -77,12 +85,6 @@ class Fou(Piece):
         else:
             return False
   
-    def deplacer(self,nouvPos,plateau):
-        if self.deplacementValide(nouvPos,plateau):
-            self.pos = nouvPos
-      
-        return self.pos # else on ne change rien : on retourne la position courante pour signifier que le changement a eu lieu ... ou pas
-    
         
     def __repr__(self):
         if self.color == 0:

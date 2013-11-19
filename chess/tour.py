@@ -18,11 +18,13 @@ class Tour(Piece):
         
     def deplacer(self,nouvPos,plateau):
         if self.deplacementValide(nouvPos,plateau):
-            self.pos = nouvPos
-            self.abouger = 0
-        # else on ne change rien : on retourne la position courante 
-        # pour signifier que le changement a eu lieu ... ou pas
-        return self.pos
+            plateau.damier[nouvPos] = self
+            plateau.damier[self.pos] = None
+            self.pos=nouvPos
+            self.abouge=0
+            
+        return self.pos     
+        
 
     def deplacementValide(self,nouvPos,plateau):
         pos_dep = self.pos

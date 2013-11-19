@@ -15,7 +15,16 @@ class Roi(Piece):
     def __init__(self,line,col,couleur):
         """Initialise un roi à la position (ligne,colonne) avec la bonne couleur 0 pour noir, 1 pour blanc"""
         Piece.__init__(self,line,col,couleur)
-    
+ 
+    def deplacer(self,nouvPos,plateau):
+        if nouvPos in self.posFuturesPossibles(plateau):
+            plateau.damier[nouvPos] = self
+            plateau.damier[self.pos] = None
+            self.pos=nouvPos
+            self.abouge=0
+            
+        return self.pos     
+        
     def posFuturesPossibles(self,plateau):
         lf = []
         cavpos = [[self.pos[0]+1,self.pos[1]-1],[self.pos[0],self.pos[1]-1],[self.pos[0]-1,self.pos[1]-1],[self.pos[0]-1,self.pos[1]],[self.pos[0]-1,self.pos[1]+1],[self.pos[0],self.pos[1]+1],[self.pos[0]+1,self.pos[1]+1],[self.pos[0]+1,self.pos[1]]]
@@ -29,14 +38,7 @@ class Roi(Piece):
             else:
                 lf.append(l)
         return lf
-    
-    def deplacer(self,nouvPos,plateau):
-        if nouvPos in self.posFuturesPossibles(plateau):
-            self.pos = nouvPos
-            self.abouge = 0
-        # else on ne change rien : on retourne la position courante
-        # pour signifier que le changement a eu lieu ... ou pas
-        return self.pos
+      
     
     def __repr__(self):
         if self.color == 0:
