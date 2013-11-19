@@ -87,7 +87,7 @@ class GameManagement(object):
 ### Alternance des joueurs        
     def alternance(self, board):
         
-        if board.tour//2 == 0:
+        if float(board.tour)%2 == 0:
             active_player = 'Blanc'
         else:
             active_player = 'Noir'

@@ -98,18 +98,22 @@ if __name__ == '__main__':
                     
                 
                 elif user_input.lower()[0] in numbers:
-                    GM.next_turn(user_input, board)
-                    affiche_plateau(board)
-                    dep = board.getPiece(int(user_input[0]),int(user_input[1]))
-                    arr = board.getPiece(int(user_input[2]),int(user_input[3]))
-                    if dep == None:
-                        board.tour += 1
-                        active_player = GM.alternance(board)
-                        affiche_plateau(board)
-                        user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
-                    else:
+                    
+                    if board.getPiece(int(user_input[0]),int(user_input[1])) == None:
                         print('Ce coup est invalide entrez de nouvelles coordonnees')
                         user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
+                    else:
+                        GM.next_turn(user_input, board)
+                        affiche_plateau(board)
+                        dep = board.getPiece(int(user_input[0]),int(user_input[1]))
+                        arr = board.getPiece(int(user_input[2]),int(user_input[3]))
+                        if dep == None:
+                            board.tour += 1
+                            active_player = GM.alternance(board)
+                            user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
+                        else:
+                            print('Ce coup est invalide entrez de nouvelles coordonnees')
+                            user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
                 
                 else:
                     print("Ceci n'est pas une commande reconnue")
