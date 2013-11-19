@@ -58,7 +58,7 @@ class GameManagement(object):
         pieces = {'T':Tour, 'C':Cavalier, 'F':Fou, 'D':Dame, 'R':Roi, 'P':Pion}
         couleur = {'B':1,'N':0}
         
-        board.tour = first_line[0]
+        board.tour = int(first_line[0])
         
         for i in range(1,len(lines)):
             line = lines[i]
@@ -107,7 +107,7 @@ class GameManagement(object):
         
         board.damier[(int(user_input[0]),int(user_input[1]))].deplacer((int(user_input[2]),int(user_input[3])), board)
         
-        print(board.damier)
+        
            
         
 ### Coups Speciaux, Echec, echec et mat, pat, ROC        

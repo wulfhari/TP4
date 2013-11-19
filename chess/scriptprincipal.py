@@ -75,7 +75,6 @@ if __name__ == '__main__':
         if debut.lower() == "new":
             play = True
             board = GM.new_game()
-            active_player = GM.alternance(board)
             affiche_plateau(board)
             user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
             
@@ -89,7 +88,7 @@ if __name__ == '__main__':
                     
                 elif user_input.lower() == "save":
                     file_name = str(input(" Entrez le nom du fichier de sauvegarde "))
-                    GM.save_game(file_name)
+                    GM.save_game(board,file_name)
                     user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
                       
                 elif user_input.lower() == "quit":
@@ -98,8 +97,8 @@ if __name__ == '__main__':
                     
                 
                 elif user_input.lower()[0] in numbers:
-                    
-                    if board.getPiece(int(user_input[0]),int(user_input[1])) == None:
+                    initial = board.getPiece(int(user_input[0]),int(user_input[1]))
+                    if initial == None:
                         print('Ce coup est invalide entrez de nouvelles coordonnees')
                         user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
                     else:
@@ -123,40 +122,49 @@ if __name__ == '__main__':
      
         elif debut.lower() == "load":
             play = True
-            save_name = str(input("Entrez le nom du fichier de sauvegarde sans l'extension"))
+            save_name = str(input("Entrez le nom du fichier de sauvegardé sans l'extension"))
             board = GM.load_game(save_name)
             affiche_plateau(board)
-            user_input = input("C'est au tour des "+ GM.active_player(board) +" a jouer.")
+            user_input = input("C'est au tour des "+ GM.alternance(board) +" a jouer.")
             
             while play:
                 if user_input.lower() == "man":
                     manuel()
+                    user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
+                    
                     
                 elif user_input.lower() == "save":
                     file_name = str(input(" Entrez le nom du fichier de sauvegarde "))
-                    GM.save_game(file_name)
-                    break
+                    GM.save_game(board,file_name)
+                    user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
                       
                 elif user_input.lower() == "quit":
                     play = False
                     break
                     
-                ##  La routine qui joue les tours
+                
                 elif user_input.lower()[0] in numbers:
-                    GM.next_turn(user_input, board)
-                    if board.damier[(int(user_input[0]),int(user_input[1]))] == None:
-                        board.tour += 1
-                        active_player = GM.alternance(board)
-                        affiche_plateau(board)
-                        user_input = input("C'est au tour des "+ GM.alternance(board) +" a jouer.")
-                    else:
+                    initial = board.getPiece(int(user_input[0]),int(user_input[1]))
+                    if initial == None:
                         print('Ce coup est invalide entrez de nouvelles coordonnees')
-                        user_input = input("C'est au tour des "+ GM.alternance(board) +" a jouer.")
+                        user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
+                    else:
+                        GM.next_turn(user_input, board)
+                        affiche_plateau(board)
+                        dep = board.getPiece(int(user_input[0]),int(user_input[1]))
+                        arr = board.getPiece(int(user_input[2]),int(user_input[3]))
+                        if dep == None:
+                            board.tour += 1
+                            active_player = GM.alternance(board)
+                            user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
+                        else:
+                            print('Ce coup est invalide entrez de nouvelles coordonnees')
+                            user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
                 
                 else:
                     print("Ceci n'est pas une commande reconnue")
                     manuel()
-                    user_input = input("C'est au tour des "+ GM.alternance(board) +" a jouer.")
+                    user_input = str(input("C'est au tour des "+ GM.alternance(board) +" a jouer."))
                     
         
         
