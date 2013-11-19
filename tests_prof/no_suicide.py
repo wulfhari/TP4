@@ -2,40 +2,8 @@
 # -*- coding:Utf-8 -*-
 
 '''
-Pour No suicide
-
-Voir si on bonge le roi, les autres pieces peuvent le manger
-
-!!!!!!Si piece jouer ROI!!!!!!
-
-Donc poser posR comme nouv pos Roi (donc Input du joueur) dans fonction echec
-
-!!!!!Si autre piece qui est joue!!!!!
-
-Voir si une fois le deplacement effectue le roi peut se faire manger 
-
-donc effectuer deplacer
-nouveau damier
-echec dans nouveau damier
-si echec  == True
-No suicide == True
-
-
-
-board.damier[(int(user_input[0]),int(user_input[1]))].deplacer((int(user_input[2]),int(user_input[3])), board)
-'''
 def no_suicide(self,user_input,board):
-    from chess.plateau import Plateau
-    from chess.tour import Tour
-    from chess.dame import Dame
-    from chess.roi import Roi
-    from chess.pion import Pion
-    from chess.fou import Fou
-    from chess.cavalier import Cavalier
-    from chess.gamemanagement import GameManagement
-
     f = board.damier.values() 
-    
     #Pour quand le roi est deplace
     for i in board.damier[(int(user_input[0]),int(user_input[1]))]:
         i = str(i)
@@ -83,5 +51,39 @@ def no_suicide(self,user_input,board):
             board_2 = board.damier
             board.damier[(int(user_input[0]),int(user_input[1]))].deplacer((int(user_input[2]),int(user_input[3])), board_2)
             board_2.echec(board_2)
+'''
+
+def pat(self,user_input, board):
+    if no_suicide(user_input,board) == False:
+        return False
+    elif no_suicide() == True:
+        f = board.damier.values()
+        lsp = [] #liste de position de nos pieces alliees
+        if self.alternance(board) == 'Noir':
+            n = 'N'
+        elif self.alternance(board) == 'Blanc':
+            n = 'B'
+        for j in f:
+            if j != None:
+                j = str(j)
+                if j[2] == "C"+n:
+                    lsp.append(int(j[0]),int(j[1]))
+                elif j[2] == "R"+n:
+                    lsp.append(int(j[0]),int(j[1]))
+        lpt = [] #liste de liste de position possible de nos pieces alliees
+        for i in lsp:
+            lpt.append(board.damier[i].posFuturesPossibles())
+        pat = True                                       
+        while pat == True:
+            for l in lsp:
+                for k in lpt[l]:
+                    if board.no_suicide((l[0],l[1],k[0],k[2]),board) == True:
+                        pat = True
+                    else:
+                        pat = False
+            return True
+        return False
+                            
+       
 
 
