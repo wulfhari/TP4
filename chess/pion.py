@@ -15,7 +15,8 @@ class Pion(Piece):
         
     def deplacer(self,nouvPos,plateau):
         if self.deplacementValide(nouvPos,plateau)==True:
-            plateau.damier[]
+            plateau.damier[self.nouvpos] = self
+            plateau.damier[self.pos] = None
             self.pos=nouvPos
             self.abouge=0
             
